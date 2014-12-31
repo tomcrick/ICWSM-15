@@ -1,5 +1,4 @@
 \def\year{2015}
-%File: formatting-instruction.tex
 \documentclass[letterpaper]{article}
 \usepackage{aaai}
 \usepackage{times}
@@ -23,17 +22,18 @@
 /Keywords (Social Networks, Data Mining, Social Behaviour, Psycholinguistics, Social Computing)
 }
 \setcounter{secnumdepth}{0}  
- \begin{document}
-% The file aaai.sty is the style file for AAAI Press 
-% proceedings, working notes, and technical reports.
-%
+
+\begin{document}
+
 \title{Profiling Complex Online Interactions:\\What behaviour can you infer from a digital footprint?}
 \author{Mohamed Mostafa \and Tom Crick \and Giles Oatley\\
 Department of Computing \& Information Systems\\
 Cardiff Metropolitan University\\
 Cardiff, UK
 }
+
 \maketitle
+
 \begin{abstract}
 \begin{quote}
 This is an initial exploration of how people interact with complex
@@ -60,26 +60,24 @@ applicant.
 
 \section{Introduction}
 
-Understanding how to develop software to facilitate its effective use
-is a core part of the broad field of human-computer
+Understanding how to develop software to facilitate its effective and
+efficient use is a core part of the broad field of human-computer
 interaction. Different users form different conceptions or mental
-models about their interactions and have different ways of learning
-and keeping knowledge and skills. Cultural and national differences
-also play a significant role. Another consideration in human-computer
-interaction is that technology -- and in particular, user interface
-technology -- changes rapidly, offering new interaction possibilities
-to which previous research findings may not apply. Alongside this,
-user preferences (and the way in which they interact with the
-software) change as they gradually master new interfaces. User
-interaction with the web-based application portal, ``{\emph{Online
-portal for scholarship mobility}}'', will be used as the system
-example throughout this paper.
+models about their interactions and have different ways of obtaining
+and developing knowledge and skills. Cultural and national differences
+may also play a significant role. Another consideration in
+human-computer interaction is that technology -- and in particular,
+user interface technology -- changes rapidly, offering new interaction
+possibilities to which previous research findings may not necessarily
+apply. Alongside this, user preferences (and the way in which they
+interact with the software) change as they gradually master new
+interfaces and environments.
 
 Personality and behaviour can be determined from digital
 data~\cite{pennebaker-et-al:2001,vazire+gosling:2004,iacobelli-et-al:2011,oatley+crick:2014};
 while in the past this has mainly been the textual information
 contained in blogs or status posts, there is also a wealth of metadata
-in the numerous ways of interacting with a digital artefact. For
+in the numerous ways of interacting with digital artefacts. For
 instance, it is possible to observe the ordering (and frequency) of
 button clicks for a user.
 
@@ -88,8 +86,8 @@ demonstrate the use of features from psycholinguistic databases
 LIWC~\cite{pennebaker-et-al:2001} and MRC~\cite{wilson:1988} to create
 a range of statistical models for each of the Five Factors personality
 traits~\cite{norman:1963,peabody+goldberg:1989,goldberg:1990}. These
-five traits are: extraversion, emotional stability, agreeableness,
-conscientiousness and openness to experience. See
+five traits are: Extraversion, Emotional Stability, Agreeableness,
+Conscientiousness and Openness to Experience. See
 Equation~\ref{eqn:extraversion} for `Extraversion', where each feature
 is prefixed by the containing database.
 
@@ -106,21 +104,24 @@ is prefixed by the containing database.
 \end{aligned}
 \end{equation}
 
-We make use of textual data, analysing with these same
-psycholinguistic techniques, and employ standard statistical methods
-on non-textual data. The textual data includes interaction with a
-Facebook page dedicated to resolving problems with the applications
-(of which there were/are many); and, the actual documents submitted,
-including a free-text application motivation letter. The non-textual
-data includes the final scoring of the individual for the grant they
-applied for (e.g. success, reserved, failure) and the individuals
-behaviour on the site (when they uploaded their documents, how close
-to the deadline and so on).
+We thus present as the example system in this paper the user
+interaction with a web-based educational application portal:
+``{\emph{Online Portal for Scholarship Mobility}}''. We make use of
+textual data, analysing with these same psycholinguistic techniques,
+and employ standard statistical methods on non-textual data. The
+textual data also includes interaction with a dedicated Facebook page
+dedicated to resolving problems with the applications (of which there
+were/are many); and, the actual documents submitted, including a
+free-text application motivation letter. The non-textual data includes
+the final scoring of the individual for the grant they applied for
+(e.g. success, reserved, failure) and the individuals behaviour on the
+site (when they uploaded their documents, how close to the deadline
+and so on).
 
 
 \section{Domain Description and Available Data}
 
-Our data comes from an online portal for a European Union
+Our data comes from an online portal for a European Union (EU)
 international scholarship mobility hosted at a university in the
 UK. The aim of the mobility programme is to enhance quality in higher
 education through scholarships and academic cooperation between Europe
@@ -146,7 +147,7 @@ portal). Applicants are required to submit for their application
 certain mandatory files, such as motivation letter,
 passport/identification, curriculum vitae), as well as optional files
 (supporting documents). The primary means of communication between
-candidates and the project team is through emails, phone and the
+candidates and the project team is via emails, telephone and the
 dedicated Facebook page. The selection process divided into three
 stages: Eligibility, Evaluation and Final Selection.
 
@@ -162,9 +163,9 @@ minimum requirements of the call.
 
 Eligible users are evaluated by a technical expert from the host
 university, based on the following: motivation letter; academic
-merit/performance (qualifications); English language competencies
-(e.g. International English Language Testing System
-(IELTS)\footnote{\url{http://www.ielts.org/}} score); and
+merit/performance (qualifications/grades); English language
+competencies e.g. International English Language Testing System
+(IELTS)\footnote{\url{http://www.ielts.org/}} score; and
 academic/research proposal.
 
 \subsection{Final Selection}
@@ -176,10 +177,10 @@ process results in the final classification of the applicant as
 either:
 
 \begin{itemize}
-\item Accepted (ranked highest);
-\item Reserved (passed but not selected);
-\item Rejected (below passing grade); 
-\item Ineligible (missing documents or out-dated documents).
+\item {\emph{Accepted}} (ranked highest);
+\item {\emph{Reserved}} (passed but not selected);
+\item {\emph{Rejected}} (below passing grade); 
+\item {\emph{Ineligible}} (missing documents or out-dated documents).
 \end{itemize}
 
 
@@ -201,7 +202,7 @@ project Facebook page.
 We are interested in the similarity between language characteristics
 used in the much more formal documents (for instance the motivation
 letter) and that used in online social media (the Facebook page). The
-Facebook interaction consists of posts, comments and ``likes''. We
+Facebook interaction consists of posts, comments and ``Likes''. We
 extracted the text from all motivation letters and Facebook
 interactions and analysed both blocks of text according to the Five
 Factor personality traits as discussed previously.
@@ -225,18 +226,18 @@ to include the following milestones: {\emph{T0}} Registration Time;
 {\emph{T1}} First Action; {\emph{T2}} Last Action; and, {\emph{T3}}
 Submission. Additionally we represented an extension to the submission
 deadline as {\emph{T4}} Extension. In this way we can represent an
-applicants’ interaction as shown in Figure 1, which shows seven
-example timelines.
+applicants’ interaction as shown in Figure~\ref{fig:timelines}, which
+shows seven example timelines.
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.9\columnwidth]{images/legend.jpg}
-\includegraphics[width=0.9\columnwidth]{images/timelines.jpg}
+\includegraphics[width=\columnwidth]{images/legend.jpg}
+\includegraphics[width=\columnwidth]{images/timelines.jpg}
 \caption{Seven user timelines. {\emph{T0}} (black bar) is when the applicant first
 registered with the call. {\emph{T1}} (red bar) represents when the applicant
 uploaded their first document, or First Action. {\emph{T2}} (green bar)
-represents an applicants’ Last Action. {\emph{T3}} (blue bar) represents the
-applicants’ Submission. {\emph{T4}} (aquamarine bar) represents the first
+represents an applicants' Last Action. {\emph{T3}} (blue bar) represents the
+applicants' Submission. {\emph{T4}} (aquamarine bar) represents the first
 deadline (certain calls had initial deadlines extended).}
 \label{fig:timelines}
 \end{figure}
@@ -296,50 +297,50 @@ first row. Successive rows can be interpreted in the same manner.
 \hline
 Class & {\emph{n}} & {\emph{T0}} & {\emph{T1}} & {\emph{T2}} & {\emph{T3}} \\ 
 \hline
-{\textbf{A}} & 4 & S1 & S3 & S3 & S3\\
-{\textbf{B}} & 14 & S2 & S2 & S2 & S2\\
-{\textbf{C}} & 128 & S2 & S3 & S3 & S3\\
-{\textbf{D}} & 29 & S2 & S3 & S4 & S4\\
-{\textbf{E}} & 678 & S3 & S3 & S3 & S3\\
-{\textbf{F}} & 202 & S3 & S3 & S4 & S4\\
-{\textbf{G}} & 9 & S3 & S4 & S4 & S4\\
-{\textbf{H}} & 54 & S4 & S4 & S4 & S4\\
+{\emph{A}} & 4 & S1 & S3 & S3 & S3\\
+{\emph{B}} & 14 & S2 & S2 & S2 & S2\\
+{\emph{C}} & 128 & S2 & S3 & S3 & S3\\
+{\emph{D}} & 29 & S2 & S3 & S4 & S4\\
+{\emph{E}} & 678 & S3 & S3 & S3 & S3\\
+{\emph{F}} & 202 & S3 & S3 & S4 & S4\\
+{\emph{G}} & 9 & S3 & S4 & S4 & S4\\
+{\emph{H}} & 54 & S4 & S4 & S4 & S4\\
 \hline
 %\end{tabular}
 \end{tabularx}
-\caption{Applicants timeline actions assigned to segments}
+\caption{Applicants' timeline actions assigned to segments}
 \label{tbl:apptlseg}
 \end{table}
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \centering
-\begin{tabularx}{\columnwidth}{c X l}
+\begin{tabularx}{\textwidth}{c X l}
 %\begin{tabular}{c c c} 
 \hline
 Class & Description & Potential Alias  \\ 
 \hline
-{\textbf{A}} & Register early, and take some time to upload documents, but submit with plenty of time before deadline & EverythingEarly\\
-{\textbf{B}} & Register reasonably early, but then upload documents and submit straight after with plenty of time before deadline, making no amendments & QuiteEarlyAndQuick\\
-{\textbf{C}} & Similar to Class B, but submitting more slowly & Cautious\\
-{\textbf{D}} & Registers reasonably early, and then takes time to upload, and only submits at the last days & VeryCautious\\
-{\textbf{E}} & Latecomer to registration, but then uploads and submits
+{\emph{A}} & Register early, and take some time to upload documents, but submit with plenty of time before deadline & EverythingEarly\\
+{\emph{B}} & Register reasonably early, but then upload documents and submit straight after with plenty of time before deadline, making no amendments & QuiteEarlyAndQuick\\
+{\emph{C}} & Similar to Class B, but submitting more slowly & Cautious\\
+{\emph{D}} & Registers reasonably early, and then takes time to upload, and only submits at the last days & VeryCautious\\
+{\emph{E}} & Latecomer to registration, but then uploads and submits
 quickly thereafter & Cautious\\
-{\textbf{F}} & Latecomer to registration, but then uploads and submits
+{\emph{F}} & Latecomer to registration, but then uploads and submits
 slowly & Cautious\\
-{\textbf{G}} & Latecomer to registration, but delays uploading and
+{\emph{G}} & Latecomer to registration, but delays uploading and
 submission to last days & Cautious\\
-{\textbf{H}} & Does everything at the last days, from registration to submission & EverythingLastMinute\\
+{\emph{H}} & Does everything at the last days, from registration to submission & EverythingLastMinute\\
 \hline
 %\end{tabular}
 \end{tabularx}
 \caption{Description of each class}
 \label{tbl:classdesc}
-\end{table}
+\end{table*}
 
 We do not want to be too quick to ascribe an alias to the behaviours,
 as we recognise that there are several possible interpretations. We
-leave the column `Potential Alias' in our table to indicate some
-initial thoughts. 
+have used the column `Potential Alias' in our table to indicate some
+initial thoughts.
 
 
 \subsection{Experiment 3}
@@ -371,9 +372,9 @@ are the LIWC features. We proceeded as follows:
 
 \section{Results}
 
-The result presented are an initial indication for our research; we
-are planning further experiments and research on this topic using this
-rich data set.
+The result presented in this section are an initial indication of our
+research with this system; we are currently developing
+significant further experiments and research with this rich dataset.
 
 \subsection{Experiment 1}
 
@@ -391,24 +392,25 @@ absence of association.
 \hline
 Group & E & ES & A & C & O \\ 
 \hline
-{\textbf{All}} & $-0.094$ & 0.099 & 0.145 & 0.025 & {\textbf{$-0.379$}}\\
-{\textbf{Accepted}} & 0.000 & 0.000 & 0.000 & 0.000 & {\textbf{0.800}}\\
-{\textbf{Rejected}} & $-0.244$ & {\textbf{0.333}} & $-0.067$ & 0.022 & $-0.244$\\
-{\textbf{Reserved}} & 0.010 & 0.010 & 0.162 & 0.153 & {\textbf{$-0.6$}}\\
+{\emph{All}} & $-0.094$ & 0.099 & 0.145 & 0.025 & {\textbf{$-0.379$}}\\
+{\emph{Accepted}} & 0.000 & 0.000 & 0.000 & 0.000 & {\textbf{0.800}}\\
+{\emph{Rejected}} & $-0.244$ & {\textbf{0.333}} & $-0.067$ & 0.022 & $-0.244$\\
+{\emph{Reserved}} & 0.010 & 0.010 & 0.162 & 0.153 & {\textbf{$-0.6$}}\\
 \hline
 %\end{tabular}
 \end{tabularx}
 \caption{Average rank correlation for applicant group versus personality
-trait (E: Extraversion. ES: Emotional Stability. A: Agreeableness. C:
-Conscientiousness. O: Openness to Experience)}
+trait (E: {\emph{Extraversion}}; ES: {\emph{Emotional Stability}}; A: {\emph{Agreeableness}}; C:
+{\emph{Conscientiousness}}; O: {\emph{Openness to Experience}})}
 \label{tbl:avrankcorr}
 \end{table}
 
 
 The most significant positive relationship is between those applicants
-Accepted and the feature Openness to Experience ({\emph{Tau-b}} =
-0.8). A strong negative relationship exists between those applicants
-Reserved and the feature Openness to Experience (Tau-b = -0.6).
+{\emph{Accepted}} and the feature {\emph{Openness to Experience}}
+({\emph{Tau-b}} = 0.8). A strong negative relationship exists between
+those applicants {\emph{Reserved}} and the feature {\emph{Openness to
+Experience}} ({\emph{Tau-b}} = -0.6).
 
 \subsection{Experiment 2}
 
@@ -419,48 +421,49 @@ example, Figure~\ref{fig:extraversion} displays the Extraversion
 feature, and the y-axis displays these values accordingly. The x-axis
 is comprised of the various classes from
 Figure~\ref{fig:extraversion}, combined with the status of the
-application (1. Accepted, 2. Rejected, 3. Reserved,
-4. Ineligible). Therefore, A1 are the Class A applicants who were
-Accepted, distinguished from A2, who were the same class (i.e. same
-activity based on timeline/milestones), but who were rejected.
+application (1. {\emph{Accepted}}, 2. {\emph{Rejected}},
+3. {\emph{Reserved}}, 4. {\emph{Ineligible}}). Therefore, A1 are the
+Class A applicants who were {\emph{Accepted}}, distinguished from A2,
+who were the same class (i.e. same activity based on
+timeline/milestones), but who were {\emph{Rejected}}.
 
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.9\columnwidth]{images/Extraversion_ver1.jpg}
-\caption{Extraversion. All features are hard to distinguish between, excepting that B2 is
+\includegraphics[width=\columnwidth]{images/Extraversion_ver1.jpg}
+\caption{{\emph{Extraversion}}. All features are hard to distinguish between, excepting that B2 is
 significantly smaller than B3 and B4.}
 \label{fig:extraversion}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.9\columnwidth]{images/EmotionalStability_ver1.jpg}
-\caption{Emotional Stability. No real features larger or smaller, although the range on all of the E
+\includegraphics[width=\columnwidth]{images/EmotionalStability_ver1.jpg}
+\caption{{\emph{Emotional Stability}}. No real features larger or smaller, although the range on all of the E
 features seems much greater than the other features.}
 \label{fig:emotstab}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.9\columnwidth]{images/Agreeableness_ver1.jpg}
-\caption{Agreeableness. D4 is significantly smaller than D1, D2, and D3. G2 appears
+\includegraphics[width=\columnwidth]{images/Agreeableness_ver1.jpg}
+\caption{{\emph{Agreeableness}}. D4 is significantly smaller than D1, D2, and D3. G2 appears
 significantly less conscientious than G3.}
 \label{fig:agreeableness}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.9\columnwidth]{images/Conscientiousness_ver1.jpg}
-\caption{Conscientiousness. G2 appears significantly less conscientious than G3. To a lesser
+\includegraphics[width=\columnwidth]{images/Conscientiousness_ver1.jpg}
+\caption{{\emph{Conscientiousness}}. G2 appears significantly less conscientious than G3. To a lesser
 degree D4 is smaller than D1, D2, and D3.}
 \label{fig:conscientiousness}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.9\columnwidth]{images/OpennessToExperience_ver1.jpg}
-\caption{Openness to Experience. As with Emotional Stability, there are no exceptional features,
+\includegraphics[width=\columnwidth]{images/OpennessToExperience_ver1.jpg}
+\caption{{\emph{Openness to Experience}}. As with Emotional Stability, there are no exceptional features,
 although the range on all of the E features seems much greater than
 the other features. The Class E were the applicants that were relative
 late comers to registration, but who then uploaded and submitted
@@ -502,7 +505,7 @@ UID & WC & WPS & UNIQUE & SIXLTR\\
 \hline
 %\end{tabular}
 \end{tabularx}
-\caption{Sample of the data set we have 87 LIWC features and more than
+\caption{Sample of the data set: we have 87 LIWC features and more than
   1000 candidates. UID represent the user and rest of the columns represent
   the LIWC features}
 \label{tbl:sampledata}
@@ -538,11 +541,11 @@ features are related through multicollinearity:
 
 \begin{table}[!h]
 \begin{tabularx}{\columnwidth}{l l Y Y}
-\multicolumn{2}{l}{Coefficients}            &                       &\\
+%\multicolumn{2}{l}{Coefficients}            &                       &\\
 \hline
 \multicolumn{2}{l}{\multirow{2}{*}{Model}} &
-\multicolumn{2}{c}{Collinearity Statistics} \\
-\multicolumn{2}{l}{}                        & Tolerance             & VIF                \\
+\multicolumn{2}{c}{{\emph{Collinearity Statistics}}} \\
+\multicolumn{2}{c}{}                        & Tolerance             & VIF                \\
 \hline
 1   & (Constant)           & -                     & -                  \\
 & REFERENCE\_PEOPLE    & 0.003                 & 290.011            \\
@@ -581,14 +584,14 @@ features are related through multicollinearity:
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.9\columnwidth]{images/fig-x-1.jpg}
+\includegraphics[width=\columnwidth]{images/fig-x-1.jpg}
 \caption{Normal P-P Plot}
 \label{fig:normalpp}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.9\columnwidth]{images/fig-x-2.jpg}
+\includegraphics[width=\columnwidth]{images/fig-x-2.jpg}
 \caption{Scatterplot}
 \label{fig:scatterplot}
 \end{figure}
@@ -599,9 +602,9 @@ than 2\% of the total number.
 
 \begin{table}[!h]
 \begin{tabularx}{\columnwidth}{Y Y Y Y Y}
-\multicolumn{5}{l}{Model Summary} \\
+%\multicolumn{5}{l}{Model Summary} \\
 \hline
-Model & R & R Square & Adjusted R Square & Std. Error of the Estimate\\
+Model & R & R Sq. & Adj. R Sq. & Std. Err of Est.\\
 \hline
 1   & .262$^a$ & 0.069  & 0.010 & 0.796\\
 \hline
@@ -614,9 +617,9 @@ Model & R & R Square & Adjusted R Square & Std. Error of the Estimate\\
 \begin{table}[!h]
 \begin{tabularx}{\columnwidth}{Y Y Y Y Y Y}
 \hline
- & Sum of Squares & df & Mean Square & F & Sig.\\
+ & Sum of Sq. & df & Mean Sq. & F & Sig.\\
 \hline
-Regression & 41.602 & 56 & 0.743 & 1.172 & 0.187$^b$\\
+Regress. & 41.602 & 56 & 0.743 & 1.172 & 0.187$^b$\\
 Residual  & 563.465 & 889  & 0.634 & - & -\\
 Total & 605.067 & 945 & - & - & -\\
 \hline
@@ -629,7 +632,7 @@ Total & 605.067 & 945 & - & - & -\\
 \begin{table}[!h]
 \begin{tabularx}{\columnwidth}{l l Y Y}
 \hline
-Model & & Standardised Coefficients & Sig.\\
+Model & & Stnd. Coeff. & Sig.\\
 \hline
 & & Beta & \\
 1 & (Constant) & & 0.000\\
@@ -658,7 +661,7 @@ regression model we have gone through different checks to eliminate
 the features that may affect our model.
 
 In the first assumption (Table~\ref{tbl:coefficmulti}), we removed 26
-features because we detected it is multicollinearity which will affect
+features because we detected its multicollinearity which will affect
 the model, and also eliminated 102 candidates with critical values in
 Mahalanobis distance check to reach the best model. On the model
 summary (Table~\ref{tbl:modelsum}), R Square shows that 6.9\% accuracy
@@ -701,22 +704,23 @@ The results from our two streams of experiments or explorations
 provide a valuable initial indication about the data and an
 appropriate way to represent and explore it. From Experiment 1, there
 seems to be a strong relationship between the Five Factor feature
-`Openness to Experience' with a strong correlation with the Accepted
-group. The exploration of timeline behaviour is dependent on our
-representation used for interactions, and the classes derived. This is
-a first attempt at tackling this representation problem. The same
-feature `Openness to Experience' has no group/class combinations that
-are significantly different than others.
+{\emph{Openness to Experience}} with a strong correlation with the
+{\emph{Accepted}} group. The exploration of timeline behaviour is
+dependent on our representation used for interactions, and the classes
+derived. This is a first attempt at tackling this representation
+problem. The same feature {\emph{Openness to Experience}} has no
+group/class combinations that are significantly different than others.
 
 The investigation using the Five Factors is very much in its initial
-stages, and we are to deliver an appropriate instrument to the
-applicants to determine precisely their trait values, and then we can
-explore how different personality types interact. For this initial
-study we have utilised the only method available to us, which is that
-determined by Mairesse et al.~\cite{mairesse-et-al:2007}. Our future
-work will continue to focus in developing the multiple regression
-model based upon more accurate data by including more details about
-the user instead of only the motivation letter.
+stages, and we wish to develop further to deliver an appropriate
+instrument to the applicants to determine precisely their trait
+values, and then we can explore how different personality types
+interact. For this initial study we have utilised the only method
+available to us, which is that determined by
+\citeauthor{mairesse-et-al:2007}~\shortcite{mairesse-et-al:2007}. Our
+future work will continue to focus in developing the multiple
+regression model based upon more accurate data by including more
+details about the user instead of only the motivation letter.
 
 We are continuing with our dictionary-based approach to examine
 content differences (LIWC), psycholinguistic differences (MRC), and
@@ -737,14 +741,16 @@ emotional categories.
 
 We will correlate these with the Five Factors and trait emotional
 intelligence~\cite{petrides+furnham:2001} through administration of
-the BFI 44-item~\cite{john-et-al:1991} and TEIQue-SF 30-item
+the Big Five Inventory (BFI, 44-item)~\cite{john-et-al:1991} and Trait
+Emotional Intelligence Questionnaire--Short Form (TEIQue-SF, 30-item)
 questionnaires designed to measure global trait emotional
 intelligence~\cite{petrides+furnham:2006} respectively. In this way we
 determine our own domain specific formulae for traits and behaviours,
-instead of relying on the bias inherent in those from Mairesse et
-al.~\cite{mairesse-et-al:2007}. In particular, we are interested in
-the temporal aspects of traits and affects, which we plan to explore
-with Allen's logic of time and action~\cite{allen:1983,allen:1984}.
+instead of relying on the bias inherent in those from
+\citeauthor{mairesse-et-al:2007}~\shortcite{mairesse-et-al:2007}. We
+are especially interested in the temporal aspects of traits and
+affects, which we plan to explore using Allen's logic of time and
+action~\cite{allen:1983,allen:1984}.
 
 \bibliographystyle{aaai}
 \bibliography{icwsm15p1}
