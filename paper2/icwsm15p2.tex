@@ -22,9 +22,9 @@
 \pdfinfo{
 /Title (Modelling Online Bad Behaviour using Big Social Data)
 /Author (Giles Oatley, Tom Crick)
-/Keywords (Big Social Data, Online Behaviour Modelling, Complex Societal Interaction Modelling, Unnatural Language)
+/Keywords (Social Networks, Big Social Data, Online Behaviour Modelling, Unnatural Language, Social Computing, Data Mining)
 }
-\setcounter{secnumdepth}{0}  
+\setcounter{secnumdepth}{0}
 
 \begin{document}
 
@@ -42,8 +42,8 @@ Cardiff, UK
 The rise of Web 2.0 and social networking has facilitated the
 publishing of user-generated content on an exponential scale; its
 analysis is becoming increasingly important (and applicable) to the
-empirical study of society (and societal change). However, this ``Big
-Social Data'' from social media platforms differs significantly from
+empirical study of society (and societal change). However, this ``big
+social data'' from social media platforms differs significantly from
 more traditional/formal sources.  In this paper we focus our attention
 on modelling bad behaviour using big social data, for example
 so-called unnatural language with its poor language construction but
@@ -63,31 +63,32 @@ swear words.
 
 \section{Introduction}
 
-There is a pressing need to develop new and robust techniques for
-modelling online behaviour and identity, with the recent Snowden
-incident~\cite{greenwald:2014} bringing significant attention to
-profiling insider threats. User profiles or user models are vital in
-many areas; we discuss our ideas relating to profiling complex
-behaviours elsewhere~\cite{oatley+crick:2014}.  Examples of areas
-where it is essential to obtain knowledge about users of software
-applications include intelligent agents, adaptive systems, intelligent
-tutoring systems, recommender systems, intelligent e-commerce
+With recent privacy and national security incidents, such as with
+Chelsea Manning, Wikileaks~\cite{wikileaks:2013} and Edward
+Snowden~\cite{greenwald:2014}, bringing significant attention to
+profiling insider threats, there are large-scale research efforts in
+developing new and robust techniques for modelling online behaviour
+and identity. There are numerous domains in which it is essential to
+obtain knowledge about user profiles or models of software
+applications, including intelligent agents, adaptive systems,
+intelligent tutoring systems, recommender systems, e-commerce
 applications and knowledge management
-systems~\cite{schiaffino+amandi:2009}.
+systems~\cite{schiaffino+amandi:2009}; we discuss our ideas relating
+to profiling complex behaviours elsewhere~\cite{oatley+crick:2014}.
 
-Big data from social media platforms is now being used for a multitude
-of purposes, including the obvious advertising, marketing and revenue
-generation, as well as increasingly for government monitoring of
-citizens\footnote{Twitter Transparency Report 2014:
+Big datasets from social networking platforms is now being used for a
+multitude of purposes, alongside the obvious advertising, marketing
+and revenue generation; increasingly for government monitoring of
+citizens\footnote{Twitter Transparency Report 2014:\\
 \url{https://transparency.twitter.com/}}\footnote{Facebook Global
 Government Requests Report
 2014:\\\url{https://govtrequests.facebook.com/}}\footnote{Google
 Transparency Report
 2014:\\\url{http://www.google.co.uk/transparencyreport/}}, along with
 covert security, intelligence community and military user profiling.
-However, the publishing of user-generated content on this epic scale
-has significantly changed qualitative and quantitative social
-research, with its analysis becoming incredibly important to the
+However, the publishing of user-generated content on an exponential
+scale has significantly changed qualitative and quantitative social
+research, with its analysis becoming increasingly important to the
 empirical study of society. There are interesting sociological uses of
 studying or mining big social data, for instance exploring
 cyber-physical crowds using location-based social networks or the
@@ -95,31 +96,31 @@ study of personality with large-scale benchmark social datasets and
 corpora.
 
 Big data from social networking sources differs significantly from
-more formal sources.  With the advent of the social web, for instance
-social networks, blogs, gaming, shopping and review sites, there is
-now orders of magnitude more data available relating to uncensored
-natural language, requiring the development of new techniques that can
-meaningful analyse it. This uncensored language is rich in `unnatural'
-language phenomena (as opposed to `natural' language, used in
-traditional published media such as books and newspapers), defined as
-``{\emph{informal expressions, variations, spelling errors...irregular
-proper nouns, emoticons, unknown words}}''\footnote{2nd Unnatural
-Language Processing Contest, part of the 17th Annual Meeting of the
-Association for Natural Language Processing (NLP2011):
-\url{http://www.anlp.jp/nlp2011/}}; it is also rich in
-context-dependent acronyms, jargon, ``leetspeak'' and swear
-words. Leet (or ``1337''), also known as eleet or leetspeak, is an
-alternative alphabet for the English language that is used primarily
-on the Internet and in geek/cyber communities. It uses various
-combinations of ASCII characters to replace Latin script. For example,
-leet spellings of the word leet include {\emph{1337}} and
+more traditional sources.  With the advent of the social web, for
+instance social networks, blogs, gaming, shopping and review sites,
+there is now orders of magnitude more data available relating to
+uncensored natural language, requiring the development of new
+techniques that can meaningful analyse it. This uncensored language is
+rich in `unnatural' language phenomena (as opposed to `natural'
+language, used in formal/traditional published media such as books and
+newspapers), defined as ``{\emph{informal expressions, variations,
+spelling errors...irregular proper nouns, emoticons, unknown
+words}}''\footnote{2nd Unnatural Language Processing Contest, part of
+the 17th Annual Meeting of the Association for Natural Language
+Processing (NLP2011): \url{http://www.anlp.jp/nlp2011/}}; it is also
+rich in context-dependent acronyms, jargon, ``leetspeak'' and swear
+words. Leet, also known as eleet or leetspeak, is an alternative
+alphabet for the English language that is used primarily on the
+Internet and in geek/cyber communities. It uses various combinations
+of ASCII characters to replace Latin script. For example, leet
+spellings of the word ``leet'' include {\emph{1337}} and
 {\emph{l33t}}; eleet may be spelled {\emph{31337}} or
 {\emph{3l33t}}. See
 \citeauthor{perea-et-al:2008}~\shortcite{perea-et-al:2008} for an
 discussion of leet from a cognitive processing perspective.
 
 
-\subsection{Representing complex behaviour and personality}
+\subsection{Representing Complex Behaviour and Personality}
 
 Advances in psychology research have suggested it is possible for
 personality to be determined from digital
@@ -134,9 +135,9 @@ evidence in support of this hypothesis was demonstrated in 2012 by
 analysis of Twitter data for indicators of psychotic
 behaviour~\cite{sumner-et-al:2012}. While in the past this has mainly
 been the textual information contained in blogs, status posts and
-photo comments~\cite{blamey-et-al-2012}, there is also a wealth of
-information in the other ways of interacting with online
-artefacts. For instance, it is possible to observe the
+photo comments~\cite{blamey-et-al-2012,blamey-et-al-2013}, there is
+also a wealth of information in the other ways of interacting with
+online artefacts. For instance, it is possible to observe the
 ordering/timings of button clicks of a user. Several authors have
 looked at personality prediction (e.g. Five Factor personality traits)
 based on information in a user's Facebook
@@ -161,8 +162,8 @@ develop a complex behavioural profile that included `two faces'; to
 model that we can have several different modes of operation (ego
 states). We performed our Five Factor analysis, and elaborated two
 sets of Five Factor results for each user. We chose Chernoff
-faces~\cite{chernoff:1973} for the visual appeal. The Five Factors are displayed as five
-features on a stylised face, where:
+faces~\cite{chernoff:1973} for the visual representation. The Five
+Factors are displayed as five features on a stylised face, where:
 
 \begin{itemize}
 \item Width of hair represents {\emph{Conscientiousness}}; 
@@ -210,7 +211,7 @@ words. The Flesch-Kincaid tests consider word length (numbers of
 syllables) and sentence length (numbers of words).
 
 
-\section{Fraud, deception, identity theft and bad behaviour}
+\section{Fraud, Deception, Identity Theft and\\Bad Behaviour}
 
 Automatically detecting a fraudulent account in a software system is a
 very challenging task, requiring that a computer program grasps the
@@ -283,7 +284,7 @@ developed, certain features like the age of posts and photo uploads
 cannot be backdated to appear more established and credible.
 
 
-\section{Rude words: a pornography study}
+\section{Rude Words: A Study of Pornography}
 
 Colleagues carried out a research project investigating opinions on a
 range of topics related to pornography usage; a web-based
@@ -314,17 +315,18 @@ something about the role of fantasy. For instance, among the many
 options for the question ``{\emph{What are your reasons for looking at
 pornography?}}'', among the list were the following:
 
-\begin{itemize}
-\item ``{\emph{A. To see things I might do}}'';
-\item ``{\emph{B. To see things I can't do}}'';
-\item ``{\emph{C. To see things I wouldn't do}}'';
-\item ``{\emph{D. To see things I shouldn't do}}''. 
-\end{itemize}
+\begin{enumerate}[(A)]
+\item ``{\emph{To see things I might do}}'';
+\item ``{\emph{To see things I can't do}}'';
+\item ``{\emph{To see things I wouldn't do}}'';
+\item ``{\emph{To see things I shouldn't do}}''. 
+\end{enumerate}
 
-The `can't' and `wouldn't' choices clearly indicate respondents
-utilising pornography more strongly as a form of fantasy. For this we
-explored the Five Factors personality traits, in particular expecting
-some correlation with the {\emph{Openness to Experience}} factor.
+The `{\emph{can't}}' and `{\emph{wouldn't}}' choices clearly indicate
+respondents utilising pornography more strongly as a form of
+fantasy. For this we explored the Five Factors personality traits, in
+particular expecting some correlation with the {\emph{Openness to
+Experience}} factor.
 
 \begin{table}[!htb]
 \centering
@@ -340,10 +342,10 @@ D & -0.33821 & 0.08321 & 0.091183 & 1\\
 \hline
 %\end{tabular}
 \end{tabularx}
-\caption{Correlation between question items. Where: A=``{\emph{To
+\caption{Correlation between question items (where: A=``{\emph{To
 see things I might do}}''; B=``{\emph{To see things I can't do}}''; C=
 ``{\emph{To see things I wouldn't do}}'' D=``{\emph{To see
-things I shouldn't do}}''}
+things I shouldn't do}}'')}
 \label{tbl:abcd}
 \end{table}
 
@@ -357,28 +359,28 @@ from~\cite{mairesse-et-al:2007} being derived from a very different
 corpus. We are currently concentrating on the lower level features
 from LIWC, MRC and DAL.
 
-\begin{figure}[H]
+\begin{figure}[!hp]
 \centering
 \includegraphics[width=\columnwidth]{images/openA.jpg}
 \caption{Openness to experience for A(y) (dotted) versus non-A (dashed)}
 \label{fig:openA}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!hp]
 \centering
 \includegraphics[width=\columnwidth]{images/openB.jpg}
 \caption{Openness to experience for B(y) (dotted) versus non-A (dashed)}
 \label{fig:openB}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!hp]
 \centering
 \includegraphics[width=\columnwidth]{images/openC.jpg}
 \caption{Openness to experience for C(y) (dotted) versus non-A (dashed)}
 \label{fig:openC}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[!hp]
 \centering
 \includegraphics[width=\columnwidth]{images/openD.jpg}
 \caption{Openness to experience for D(y) (dotted) versus non-A (dashed)}
@@ -387,12 +389,12 @@ from LIWC, MRC and DAL.
 
 Among the categories of pornography for ``{\emph{What kinds of
 sexually explicit materials do you access}}'' were the options
-``Fiction sites'', ``Sex Blogs'' and
-``Stories''. Table~\ref{tbl:textrel} shows the correlation between
-these categories. All of these pornography sites are fiction or
-story-based, and we examined the literary features of the respondents'
-replies to see if this group of respondents write in a more
-sophisticated way.
+{\emph{Fiction Sites}}, {\emph{Sex Blogs}} and
+{\emph{Stories}}. Table~\ref{tbl:textrel} shows the correlation
+between these categories. All of these pornography sites are fiction
+or story-based, and we examined the literary features of the
+respondents' replies to see if this group of respondents write in a
+more sophisticated way.
 
 \begin{table}[!h]
 \centering
@@ -411,49 +413,49 @@ Stories & 0.192054 & 0.041866 & 1\\
 \label{tbl:textrel}
 \end{table}
 
-\begin{figure}[!h]
+\begin{figure}[!hp]
 \centering
 \includegraphics[width=\columnwidth]{images/lit-flesch.jpg}
 \caption{Flesch measure. Fiction readers (dotted) versus non-fiction readers (dashed)}
 \label{fig:flesch}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!hp]
 \centering
 \includegraphics[width=\columnwidth]{images/lit-fog.jpg}
 \caption{Fog index. Fiction readers (dotted) versus non-fiction readers (dashed)}
 \label{fig:fog}
 \end{figure}
 
-\begin{figure}[!htb]
+\begin{figure}[!hp]
 \centering
 \includegraphics[width=\columnwidth]{images/lit-kincaid.jpg}
 \caption{Kincaid measure. Fiction readers (dotted) versus non-fiction readers (dashed)}
 \label{fig:kincaid}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!hp]
 \centering
 \includegraphics[width=\columnwidth]{images/lit-percentcomplexwords.jpg}
 \caption{Percent complex words. Fiction readers (dotted) versus non-fiction readers (dashed)}
 \label{fig:percentcomplex}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!hp]
 \centering
 \includegraphics[width=\columnwidth]{images/lit-syllablesperword.jpg}
 \caption{Syllables per word. Fiction readers (dotted) versus non-fiction readers (dashed)}
 \label{fig:syllables}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[tp]
 \centering
 \includegraphics[width=\columnwidth]{images/lit-wordspersentence.jpg}
 \caption{Words per sentence. Fiction readers (dotted) versus non-fiction readers (dashed)}
 \label{fig:wordpersent}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[tp]
 \centering
 \includegraphics[width=\columnwidth]{images/lit-wordcount.jpg}
 \caption{Word count. Fiction readers (dotted) versus non-fiction readers (dashed)}
@@ -465,7 +467,7 @@ seems that the users favouring the text/story-based pornography have
 higher values than their non-text contemporaries.
 
 
-\section{Disambiguating profanity}
+\section{Disambiguating Profanity}
 
 WordNet\footnote{\url{http://wordnet.princeton.edu/}} is a large
 lexical database of English; nouns, verbs, adjectives and adverbs are
@@ -481,15 +483,17 @@ are assigned sentiment scores (positivity, negativity, objectivity),
 are built on top of WordNet.
 
 \citeauthor{millwood-hargrave:2000}'s~\shortcite{millwood-hargrave:2000}
-study for the UK regulator Ofcom (formerly, the Broadcasting Standards
-Commission) was designed to test people’s attitudes to swearing and
-offensive language, and to examine the degree to which context played
-a role in their reactions. Included in the report was attitudes
-towards swearing and offensive language `in life', including a range
-of swear words and terms of abuse. Appendix 2’s `list of words'
-contained positions of the top swear words (saying ``very severe'',
-``fairly severe'', ``quite mild'' and ``not swearing'') and their
-ranking from 1998 to 2000.
+study for Ofcom (formerly, the Broadcasting Standards Commission), the
+UK's regulatory and competition authority for the broadcasting,
+telecommunications and postal industries, was designed to test
+people’s attitudes to swearing and offensive language, and to examine
+the degree to which context played a role in their reactions. Included
+in the report was attitudes towards swearing and offensive language
+`in life', including a range of swear words and terms of
+abuse. Appendix 2’s `list of words' contained positions of the top
+swear words (saying ``{\emph{very severe}}'', ``{\emph{fairly
+severe}}'', ``{\emph{quite mild}}'' and ``{\emph{not swearing}}'') and
+their ranking from 1998 to 2000.
 
 The study of swear words has a longstanding position in linguistics,
 with the academic journal {\emph{Maledicta: The International Journal of
@@ -572,7 +576,7 @@ the number of rude words was very low. Another alternative would be
 representing as a fractional token index.
 
 
-\section{Conclusions and future work}
+\section{Conclusions and Future Work}
 
 Existing NLP tools are known to struggle with unnatural language:
 ``{\emph{demonstrated that existing tools for POS tagging, chunking
@@ -591,15 +595,16 @@ the language used, for instance the use of Urban Dictionary to resolve
 swear words. We need to study how in what precise manner this resource
 keeps pace with popular culture.
 
-There are many other lists of pornographic words, which we compiled
-from miscellaneous sources; however, we are mainly interested in
-sources such as Wikipedia and Urban Dictionary as these are maintained
-by a similar community that uses the words in social networking. In this
-way we do not have to concern ourselves about this knowledge
-engineering process, merely concern ourselves about the representation
-and quality of meaning or definitions. We will in future make use of
-the voting scores available on Urban Dictionary, and look to
-incorporate new resources such as Roger's Profanisaurus.
+There are numerous other lists of pornographic words, which we
+compiled from miscellaneous sources; however, we are mainly interested
+in sources such as Wikipedia and Urban Dictionary as these are
+maintained by a similar community that uses the words in social
+networking. In this way we do not have to concern ourselves about this
+knowledge engineering process, merely concern ourselves about the
+representation and quality of meaning or definitions. We will in
+future work make use of the voting scores available on Urban
+Dictionary, and look to incorporate new resources such as Roger's
+Profanisaurus.
 
 Future work will continue with the range of techniques to analyse
 content for words/phrases associated with certain key
