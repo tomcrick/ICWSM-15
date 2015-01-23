@@ -17,7 +17,7 @@
 \setlength{\pdfpagewidth}{8.5in}
 \setlength{\pdfpageheight}{11in}
 \pdfinfo{
-/Title (Profiling Complex Online Interactions: What behaviour can you infer from a digital footprint?)
+/Title (Profiling Complex Online Interactions: What Behaviour Can You Infer From a Digital Footprint?)
 /Author (Mohamed Mostafa, Tom Crick, Giles Oatley)
 /Keywords (Social Networks, Social Behaviour, Psycholinguistics, Social Computing, Data Mining)
 }
@@ -25,7 +25,7 @@
 
 \begin{document}
 
-\title{Profiling Complex Online Interactions:\\What behaviour can you infer from a digital footprint?}
+\title{Profiling Complex Online Interactions:\\What Behaviour Can You Infer From a Digital Footprint?}
 \author{Mohamed Mostafa \and Tom Crick \and Giles Oatley\\
 Department of Computing \& Information Systems\\
 Cardiff Metropolitan University\\
@@ -38,17 +38,17 @@ Cardiff, UK
 \begin{quote}
 This is an initial exploration of how people interact with complex
 online information systems, using a wide range of digital data and
-employing a range of personality and behavioural representation
-systems. The information system is an online portal for submitting
-applications for an international academic mobility grant scheme, and
-we analyse document uploading behaviour, motivation letters, and
-social media interactions.
+employing a number of personality and behavioural representation
+systems. The information system is an online application portal for an
+international academic mobility grant scheme, and we analyse document
+uploading behaviour, motivation letters and social media
+interactions.
 
 We apply psycholinguistic techniques to the motivation letters to
 determine the Five Factors personality scorings, and apply the same
-techniques to interactions with a dedicated Facebook ``help''
-page. The relative rankings are compared using the Kendall rank
-correlation statistic.
+techniques to interactions with a dedicated Facebook page. The
+relative rankings are compared using the Kendall rank correlation
+statistic.
 
 Finally, we examine the upload footprint for the users and determine
 several classes of behaviour. These again are compared against the
@@ -64,7 +64,7 @@ Understanding how to develop software to facilitate its effective and
 efficient use is a core part of the broad field of human-computer
 interaction. Different users form different conceptual models about
 their interactions and have different ways of obtaining and developing
-knowledge and skills. Cultural and national differences may also play
+knowledge and skills; cultural and national differences may also play
 a significant role. Another consideration in human-computer
 interaction is that technology -- and in particular, user interface
 technology -- changes rapidly, offering new interaction possibilities
@@ -83,13 +83,13 @@ artefacts. For instance, it is possible to observe the ordering (and
 frequency) of button clicks for a user.
 
 \citeauthor{mairesse-et-al:2007}~\shortcite{mairesse-et-al:2007}
-demonstrate the use of features from psycholinguistic databases
+demonstrate the use of features from the psycholinguistic databases
 LIWC~\cite{pennebaker-et-al:2001} and MRC~\cite{wilson:1988} to create
 a range of statistical models for each of the Five Factors personality
 traits~\cite{norman:1963,peabody+goldberg:1989,goldberg:1990}. These
 five traits are: {\emph{Extraversion}}, {\emph{Emotional Stability}},
 {\emph{Agreeableness}}, {\emph{Conscientiousness}} and {\emph{Openness
-to Experience}}. See Equation~\ref{eqn:extraversion} for
+to Experience}}. Equation~\ref{eqn:extraversion} describes
 {\emph{Extraversion}}, where each feature is prefixed by the
 containing database.
 
@@ -106,28 +106,27 @@ containing database.
 \end{aligned}
 \end{equation}
 
-We thus present as the example system in this paper the user
-interaction with a web-based educational application portal:
-``{\emph{Online Portal for Scholarship Mobility}}''. We make use of
-textual data, analysing with these same psycholinguistic techniques,
-and employ standard statistical methods on non-textual data. The
-textual data also includes interaction with a dedicated Facebook page
-dedicated to resolving problems with the applications (of which there
-were/are many); and, the actual documents submitted, including a
-free-text application motivation letter. The non-textual data includes
-the final scoring of the individual for the grant they applied for
-(e.g. success, reserved, failure) and the individuals behaviour on the
-site (when they uploaded their documents, how close to the deadline
-and so on).
+The test system analysed in this paper is the user interaction for a
+web-based educational application portal: ``{\emph{Online Portal for
+Scholarship Mobility}}''. We make use of textual data, analysing with
+these same psycholinguistic techniques, and employ standard
+statistical methods on non-textual data. The textual data also
+includes interaction with a dedicated Facebook page dedicated to
+resolving problems with the applications (of which there were many);
+and, the actual documents submitted, including a free-text application
+motivation letter. The non-textual data includes the final scoring of
+the individual for the grant they applied for (e.g. success, reserved,
+failure) and the individual's behaviour on the site (when they uploaded
+their documents, how close to the deadline and so on).
 
 
 \section{Domain Description and Available Data}
 
 Our data comes from an online portal for a European Union (EU)
-international scholarship mobility hosted at a university in the
-UK. The aim of the mobility programme is to enhance quality in higher
-education through scholarships and academic cooperation between Europe
-and the rest of the world. It provides mobility grants for students at
+international scholarship mobility hosted at a UK university. The aim
+of the mobility programme is to enhance quality in higher education
+through scholarships and academic cooperation between Europe and the
+rest of the world. It provides mobility grants for students at
 different academic levels (Undergraduate, Masters, PhD, Post-Doctoral,
 Faculty) and has numerous courses available from a wide range of
 institutions across the EU.
@@ -148,7 +147,7 @@ due to administrative reasons or technical issues with the
 portal). Applicants are required to submit for their application
 certain mandatory files, such as motivation letter,
 passport/identification, curriculum vitae), as well as optional files
-(supporting documents). The primary means of communication between
+(supporting documents). The primary modes of communication between
 candidates and the project team is via emails, telephone and the
 dedicated Facebook page. The selection process divided into three
 stages: Eligibility, Evaluation and Final Selection.
@@ -204,7 +203,7 @@ project Facebook page.
 We are interested in the similarity between language characteristics
 used in the much more formal documents (for instance the motivation
 letter) and that used in online social media (the Facebook page). The
-Facebook interaction consists of posts, comments and ``Likes''. We
+Facebook interaction consists of posts, comments and ``likes''. We
 extracted the text from all motivation letters and Facebook
 interactions and analysed both blocks of text according to the Five
 Factor personality traits as discussed previously.
@@ -228,7 +227,7 @@ to include the following milestones: {\emph{T0}} Registration Time;
 {\emph{T1}} First Action; {\emph{T2}} Last Action; and, {\emph{T3}}
 Submission. Additionally we represented an extension to the submission
 deadline as {\emph{T4}} Extension. In this way we can represent an
-applicants’ interaction as shown in Figure~\ref{fig:timelines}, which
+applicant's interaction as shown in Figure~\ref{fig:timelines}, which
 shows seven example timelines.
 
 \begin{figure}[!ht]
@@ -240,7 +239,7 @@ registered with the call. {\emph{T1}} (red bar) represents when the applicant
 uploaded their first document, or First Action. {\emph{T2}} (green bar)
 represents an applicants' Last Action. {\emph{T3}} (blue bar) represents the
 applicants' Submission. {\emph{T4}} (aquamarine bar) represents the first
-deadline (certain calls had initial deadlines extended).}
+deadline (certain calls had initial deadlines extended)}
 \label{fig:timelines}
 \end{figure}
 
@@ -285,12 +284,12 @@ actions ({\emph{T0}} Registration, {\emph{T1}} First Upload,
 {\emph{T2}} Last Upload, {\emph{T3}} Submission) to various time
 periods. This allowed us to assign applicants to statistically
 significant categories, and also to add in a few categories from
-observations. These are shown in the following
-Table~\ref{tbl:apptlseg}; as you can see, a small number of applicants
-({\emph{n}}=4) registered within the segment S1 (20-40\% of timeline),
-and then uploaded all of their documents and submitted within the
-segment S3 (60-90\% of timeline). This is represented by Class A, the
-first row. Successive rows can be interpreted in the same manner.
+observations. These are shown in Table~\ref{tbl:apptlseg}; as you can
+see, a small number of applicants ({\emph{n}}=4) registered within the
+segment S1 (20-40\% of timeline), and then uploaded all of their
+documents and submitted within the segment S3 (60-90\% of
+timeline). This is represented by Class A, the first row; successive
+rows can be interpreted in the same manner.
 
 \begin{table}[!ht]
 \centering
@@ -340,9 +339,9 @@ submission to last days & Cautious\\
 \end{table*}
 
 We do not want to be too quick to ascribe an alias to the behaviours,
-as we recognise that there are several possible interpretations. We
-have used the `Potential Alias' column in Table~\ref{tbl:classdesc} to
-indicate some initial thoughts.
+as we recognise that there are several possible interpretations;
+nevertheless, we have used the `Potential Alias' column in
+Table~\ref{tbl:classdesc} to indicate some initial thoughts.
 
 
 \subsection{Experiment 3}
@@ -375,8 +374,8 @@ are the LIWC features. We proceeded as follows:
 \section{Results}
 
 The result presented in this section are an initial indication of our
-research with this system; we are currently developing
-significant further experiments and research with this rich dataset.
+research with this system; we are currently developing more detailed
+experiments and research with this rich dataset.
 
 \subsection{Experiment 1}
 
@@ -433,7 +432,7 @@ timeline/milestones), but who were {\emph{Rejected}}.
 \centering
 \includegraphics[width=0.8\textwidth]{images/Extraversion_ver1.jpg}
 \caption{{\emph{Extraversion}}. All features are hard to distinguish between, excepting that B2 is
-significantly smaller than B3 and B4.}
+significantly smaller than B3 and B4}
 \label{fig:extraversion}
 \end{figure*}
 
@@ -441,7 +440,7 @@ significantly smaller than B3 and B4.}
 \centering
 \includegraphics[width=0.8\textwidth]{images/EmotionalStability_ver1.jpg}
 \caption{{\emph{Emotional Stability}}. No real features larger or smaller, although the range on all of the E
-features seems much greater than the other features.}
+features seems much greater than the other features}
 \label{fig:emotstab}
 \end{figure*}
 
@@ -449,7 +448,7 @@ features seems much greater than the other features.}
 \centering
 \includegraphics[width=0.8\textwidth]{images/Agreeableness_ver1.jpg}
 \caption{{\emph{Agreeableness}}. D4 is significantly smaller than D1, D2, and D3. G2 appears
-significantly less conscientious than G3.}
+significantly less conscientious than G3}
 \label{fig:agreeableness}
 \end{figure*}
 
@@ -457,7 +456,7 @@ significantly less conscientious than G3.}
 \centering
 \includegraphics[width=0.8\textwidth]{images/Conscientiousness_ver1.jpg}
 \caption{{\emph{Conscientiousness}}. G2 appears significantly less conscientious than G3. To a lesser
-degree D4 is smaller than D1, D2, and D3.}
+degree D4 is smaller than D1, D2, and D3}
 \label{fig:conscientiousness}
 \end{figure*}
 
@@ -469,7 +468,7 @@ although the range on all of the E features seems much greater than
 the other features. The Class E were the applicants that were relative
 late comers to registration, but who then uploaded and submitted
 quickly thereafter. Openness to Experience would seem to have very
-little relationship with this class of applicant.}
+little relationship with this class of applicant}
 \label{fig:openexp}
 \end{figure*}
 
@@ -479,7 +478,7 @@ We extracted the LIWC row data features (87 features) from the
 motivation letters and analysed the input data set against the
 `status' of the application. The method used was multiple regression,
 the dependent variable being `status' and the independent variables
-are the LIWC features; see Table~\ref{tbl:sampledata}.
+are the LIWC features (see Table~\ref{tbl:sampledata}).
 
 \begin{table}[!ht]
 \centering
@@ -515,7 +514,7 @@ UID & WC & WPS & UNIQUE & SIXLTR\\
 \subsection{Result Set}
 
 The first result set shows the correlation between dependent variable
-(Status) and independents variables (LIWC features). In our first
+(status) and independents variables (LIWC features). In our first
 assumption multicollinearity we use an R value of 0.7 or higher to say
 two predictable values have multicollinearity. Based on
 Table~\ref{tbl:sampledata}, if the tolerance is smaller than 0.1 then
@@ -666,7 +665,7 @@ features because we detected its multicollinearity which will affect
 the model, and also eliminated 102 candidates with critical values in
 Mahalanobis distance check to reach the best model. On the model
 summary (Table~\ref{tbl:modelsum}), R Square shows that 6.9\% accuracy
-to predicate the output of the ``Status'' with these
+to predicate the output of the ``status'' with these
 features. Signification (Table~\ref{tbl:anova}) of the model in ANOVA
 should be under 0.05 but the value is 0.187 which means that the
 current model cannot produce accurate prediction for the output. The
@@ -676,29 +675,28 @@ NEGATIONS.
 
 \section{Conclusions and Future Work}
 
-We have started the analysis of interactions with an information
-system utilising a small set of features. There are many more that we
-are planning to investigate. We list below the features we have used
-in these experiments, and the remaining features that can be used in
-future experiments:
+We have started the analysis of interactions with our chosen
+information system utilising a small set of features; there are many
+more that we are planning to investigate. We list below the features
+we have used in these experiments, and the remaining features that can
+be used in future experiments:
 
 \begin{itemize}
 \item {\textbf{Data used in these experiments:}} Five Factors on text
-  from Facebook Interaction, Five Factors on text from motivation
-  letters, Status (e.g. Eligibility, Final Selections),
-  Timeline/Footprint.
+  from Facebook Interaction; Five Factors on text from motivation
+  letters; Status (e.g. Eligibility, Final Selections); Timeline/Footprint.
 \item {\textbf{Data available but not used:}} Complete/detailed
-  Timeline/Footprint, Complete/detailed Facebook profile which
-  includes interactions between applicants, Demographic Information
-  (e.g. gender, age), Appeals after receiving application decision
-  (e.g. email or webpage help text), Five Factors Questionnaire (for
-  current calls), Course Details, Course Favourites, Email
-  interactions during application, Evaluation Grades (actual scores,
-  broken down into categories), Additional forms (qualifications, CV,
-  research proposal), Reasons for ineligibility (e.g. documents
-  missing, already received scholarship within 12 months), Mobility
-  Levels (e.g. undergraduate, postgraduate), Mobility Type
-  (e.g. exchange, degree seeking), Host Institutions (where applied to).
+  Timeline/Footprint; Complete/detailed Facebook profile which
+  includes interactions between applicants; Demographic Information
+  (e.g. gender, age); Appeals after receiving application decision
+  (e.g. email or webpage help text); Five Factors Questionnaire (for
+  current calls); Course Details; Course Favourites; Email
+  interactions during application; Evaluation Grades (actual scores,
+  broken down into categories); Additional forms (qualifications, CV,
+  research proposal); Reasons for ineligibility (e.g. documents
+  missing, already received scholarship within 12 months); Mobility
+  Levels (e.g. undergraduate, postgraduate); Mobility Type
+  (e.g. exchange, degree seeking); Host Institutions (where they applied).
 \end{itemize}
 
 The results from our two streams of experiments or explorations
@@ -748,10 +746,10 @@ questionnaires designed to measure global trait emotional
 intelligence~\cite{petrides+furnham:2006} respectively. In this way we
 determine our own domain specific formulae for traits and behaviours,
 instead of relying on the bias inherent in those from
-\citeauthor{mairesse-et-al:2007}~\shortcite{mairesse-et-al:2007}. We
-are especially interested in the temporal aspects of traits and
-affects, which we plan to explore using Allen's logic of time and
-action~\cite{allen:1983,allen:1984}.
+\citeauthor{mairesse-et-al:2007}~\shortcite{mairesse-et-al:2007}. In
+particular, we are especially interested in the temporal aspects of
+traits and affects, which we plan to explore using Allen's logic of
+time and action~\cite{allen:1983,allen:1984}.
 
 \bibliographystyle{aaai}
 \bibliography{icwsm15p1}
