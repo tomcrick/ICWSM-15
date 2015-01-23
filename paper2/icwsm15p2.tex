@@ -20,7 +20,7 @@
 \setlength{\pdfpagewidth}{8.5in}
 \setlength{\pdfpageheight}{11in}
 \pdfinfo{
-/Title (Modelling Online Bad Behaviour using Big Social Data)
+/Title (Modelling Online Anomalous Behaviour using Big Social Data)
 /Author (Giles Oatley, Tom Crick)
 /Keywords (Social Networks, Big Social Data, Online Behaviour Modelling, Unnatural Language, Social Computing, Data Mining)
 }
@@ -39,34 +39,34 @@ Cardiff, UK
 
 \begin{abstract}
 \begin{quote}
-The rise of Web 2.0 and social networking has facilitated the
-publishing of user-generated content on an exponential scale; its
-analysis is becoming increasingly important (and applicable) to the
-empirical study of society (and societal change). However, this ``big
-social data'' from social media platforms differs significantly from
-more traditional/formal sources.  In this paper we focus our attention
-on modelling bad behaviour using big social data, for example
-so-called unnatural language with its poor language construction but
-also context dependent acronyms, jargon, ``leetspeak'' and
-profanity. We also include a discussion on language use related to
-pornography, as well as the criminal element of identity theft, fraud
-and deliberate deception.
+The rise of Web 2.0 and the popularity of social networking has
+facilitated the publishing of user-generated content on an exponential
+scale; its analysis is becoming increasingly important (and
+applicable) to the empirical study of society (and thus societal
+change). However, this ``big social data'' from social media platforms
+differs significantly from more traditional/formal sources.  In this
+paper we focus our attention on modelling anomalous behaviour using
+big social data; for example, so-called 'unnatural' language with its
+poor language construction but also context dependent acronyms,
+jargon, ``leetspeak'' and profanity. We also include a discussion on
+language use related to pornography, as well as the criminal element
+of identity theft, fraud and deliberate deception.
 
-Our long-term research goal is the development of complex (and robust)
-behavioural modelling and profiling using a multitude of online
-datasets; in this paper we review relevant tools for use in big social
-data, and also present some novel ideas around a scalable solution to
-swear words.
+Our long-term research goal is the development of complex (and
+adaptive) behavioural modelling and profiling using a multitude of
+online datasets; in this paper we highlight relevant tools for
+analysing these big dataset, and also present some novel ideas around
+a scalable solution to analysing swear words.
 \end{quote}
 \end{abstract}
 
 
 \section{Introduction}
 
-With recent privacy and national security incidents, such as with
+With recent privacy and national security incidents -- such as with
 Chelsea Manning, Wikileaks~\cite{wikileaks:2013} and Edward
-Snowden~\cite{greenwald:2014}, bringing significant attention to
-profiling insider threats, there are large-scale research efforts in
+Snowden~\cite{greenwald:2014} -- bringing significant attention to
+profiling insider threats, there are now large-scale research efforts in
 developing new and robust techniques for modelling online behaviour
 and identity. There are numerous domains in which it is essential to
 obtain knowledge about user profiles or models of software
@@ -76,7 +76,7 @@ applications and knowledge management
 systems~\cite{schiaffino+amandi:2009}; we discuss our ideas relating
 to profiling complex behaviours elsewhere~\cite{oatley+crick:2014}.
 
-Big datasets from social networking platforms is now being used for a
+Big datasets from social networking platforms are now being used for a
 multitude of purposes, alongside the obvious advertising, marketing
 and revenue generation; increasingly for government monitoring of
 citizens\footnote{Twitter Transparency Report 2014:\\
@@ -91,31 +91,28 @@ scale has significantly changed qualitative and quantitative social
 research, with its analysis becoming increasingly important to the
 empirical study of society. There are interesting sociological uses of
 studying or mining big social data, for instance exploring
-cyber-physical crowds using location-based social networks or the
+cyber-physical crowds using location-tagged social networks or the
 study of personality with large-scale benchmark social datasets and
 corpora.
 
 Big data from social networking sources differs significantly from
-more traditional sources.  With the advent of the social web, for
+more traditional sources. With the advent of the social web, for
 instance social networks, blogs, gaming, shopping and review sites,
-there is now orders of magnitude more data available relating to
+there are now orders of magnitude more data available relating to
 uncensored natural language, requiring the development of new
 techniques that can meaningful analyse it. This uncensored language is
-rich in `unnatural' language phenomena (as opposed to `natural'
+rich in `unnatural' language (as opposed to `natural'
 language, used in formal/traditional published media such as books and
 newspapers), defined as ``{\emph{informal expressions, variations,
 spelling errors...irregular proper nouns, emoticons, unknown
-words}}''\footnote{2nd Unnatural Language Processing Contest, part of
-the 17th Annual Meeting of the Association for Natural Language
-Processing (NLP2011): \url{http://www.anlp.jp/nlp2011/}}; it is also
-rich in context-dependent acronyms, jargon, ``leetspeak'' and swear
-words. Leet, also known as eleet or leetspeak, is an alternative
-alphabet for the English language that is used primarily on the
-Internet and in geek/cyber communities. It uses various combinations
-of ASCII characters to replace Latin script. For example, leet
-spellings of the word ``leet'' include {\emph{1337}} and
-{\emph{l33t}}; eleet may be spelled {\emph{31337}} or
-{\emph{3l33t}}. See
+words}}''~\cite{ULPCproc}; it is also rich in context-dependent
+acronyms, jargon, ``leetspeak'' and swear words. Leet, also known as
+eleet or leetspeak, is an alternative alphabet for the English
+language that is used primarily on the Internet and in geek/cyber
+communities. It uses various combinations of ASCII characters to
+replace Latin script. For example, leet spellings of the word ``leet''
+include {\emph{1337}} and {\emph{l33t}}; eleet may be spelled
+{\emph{31337}} or {\emph{3l33t}}. See
 \citeauthor{perea-et-al:2008}~\shortcite{perea-et-al:2008} for an
 discussion of leet from a cognitive processing perspective.
 
@@ -125,20 +122,19 @@ discussion of leet from a cognitive processing perspective.
 Advances in psychology research have suggested it is possible for
 personality to be determined from digital
 data~\cite{pennebaker+king:1999,vazire+gosling:2004,iacobelli-et-al:2011}.
-Recent studies in the USA have suggested certain keywords and phrases
-can signal underlying tendencies and that this can form the basis of
-identifying certain aspects of
-personality~\cite{woodworth-et-al:2012}.  Extrapolating forward
-suggests that by investigation of an individual's online comments it
-may be possible to identify individual's personality traits. Initial
-evidence in support of this hypothesis was demonstrated in 2012 by
-analysis of Twitter data for indicators of psychotic
-behaviour~\cite{sumner-et-al:2012}. While in the past this has mainly
-been the textual information contained in blogs, status posts and
-photo comments~\cite{blamey-et-al-2012,blamey-et-al-2013}, there is
-also a wealth of information in the other ways of interacting with
-online artefacts. For instance, it is possible to observe the
-ordering/timings of button clicks of a user. Several authors have
+Recent studies~\cite{woodworth-et-al:2012} have suggested certain
+keywords and phrases can signal underlying tendencies and that this
+can form the basis of identifying certain aspects of personality.
+Extrapolation suggests that by investigation of an individual's online
+comments it may be possible to identify individual's personality
+traits. Initial evidence in support of this hypothesis was
+demonstrated in 2012 by analysis of Twitter data for indicators of
+psychotic behaviour~\cite{sumner-et-al:2012}. While in the past this
+has mainly been the textual information contained in blogs, status
+posts and photo comments~\cite{blamey-et-al-2012,blamey-et-al-2013},
+there is also a wealth of information in the other ways of interacting
+with online artefacts. For instance, it is possible to observe the
+ordering/timings of button clicks of a user. Several researchers have
 looked at personality prediction (e.g. Five Factor personality traits)
 based on information in a user's Facebook
 profile~\cite{back-et-al:2010,golbeck-et-al:2001} and
@@ -148,17 +144,17 @@ as also demonstrating significant correlations with fine affect
 admiration~\cite{mohammad+kiritchenko:2013}. There are also several
 strands of related work based on the benchmark myPersonality
 Project\footnote{\url{http://mypersonality.org/}}
-dataset~\cite{celli-et-al:2013}, providing a medium for well-needed
+dataset~\cite{celli-et-al:2013}, providing a platform for well-needed
 comparative studies.
 
 \citeauthor{mairesse-et-al:2007}~\shortcite{mairesse-et-al:2007}
-highlighted the use of features from psycholinguistic databases
+highlighted the use of features from the psycholinguistic databases
 LIWC~\cite{pennebaker-et-al:2001} and MRC~\cite{wilson:1988} to create
 a range of statistical models for each of the Five Factor personality
 traits~\cite{norman:1963,peabody+goldberg:1989}.
 
 In previous work~\cite{oatley+crick:2014} we utilised these methods to
-develop a complex behavioural profile that included `two faces'; to
+develop a complex behavioural profile that included `two faces' to
 model that we can have several different modes of operation (ego
 states). We performed our Five Factor analysis, and elaborated two
 sets of Five Factor results for each user. We chose Chernoff
@@ -185,17 +181,17 @@ the Five Factors model, there are well known
 limitations~\cite{eysenck:1992,paunonen+jackson:2000,block:2010} that
 are often overlooked by researchers. In particular, it has been
 criticised for its limited scope, methodology and the absence of an
-underlying theory. Attempts to replicate the Big Five in other
-countries with local dictionaries have succeeded in some countries but
-not in others~\cite{szirmak+deraad:1994,defruyt-et-al:2004}. While
+underlying theory. However, attempts to replicate the Big Five in other
+countries with local dictionaries have succeeded in some instances but
+not comprehensively~\cite{szirmak+deraad:1994,defruyt-et-al:2004}. While
 \citeauthor{costa+mccrae:1992}~\shortcite{costa+mccrae:1992} claim
 that their Five Factors model ``represents basic dimensions of
 personality'', psychologists have identified important trait models,
 for instance Cattell's 16 Personality Factors~\cite{cattell:1946} and
-Eysenck's biologically based theory~\cite{eysenck:1947}.
+Eysenck's biologically-based theory~\cite{eysenck:1947}.
 
 
-\subsection{Readability and general measurements of English text}
+\subsection{Readability and General Measurements of English Text}
 
 There are several well-known measures of a text's readability, for
 instance the Gunning Fog index~\cite{gunning:1968} and the
@@ -214,23 +210,23 @@ syllables) and sentence length (numbers of words).
 \section{Fraud, Deception, Identity Theft and\\Bad Behaviour}
 
 Automatically detecting a fraudulent account in a software system is a
-very challenging task, requiring that a computer program grasps the
-meaning of a persons' social data without significant human
-insight. Consider the complexities of detecting specific events, for
-instance marriage, anniversaries, payday, and so on, which are very
+complex and challenging task, requiring that an algorithm is able to
+grasp the meaning of a persons' social data without significant human
+intervention. Consider the complexities of detecting specific events,
+for instance marriage, anniversaries, payday, and so on, which are
 difficult features to represent and compute. This would be necessary
 to start to `understand' what was happening or being represented in
 someone's digital footprint. Perhaps prior to a marriage there will be
 a list of potential words used in their social data, and a different
-set of words used afterwards, and we can thus triangulate on our best
-guess (obviously here we are ignoring direct knowledge of the date of
-the event, for instance through calendars, or time-stamped photos or
-albums tagged with `wedding' and so on). To facilitate this, a
-significant amount of knowledge will need to be represented and
-organised, for instance in specific knowledge modelling or bespoke
-parsers and lexicons.
+(but complementary) set of words used afterwards, and we can thus
+triangulate on our best guess (obviously here we are ignoring direct
+knowledge of the date of the event, for instance through calendars, or
+time-stamped photos or albums tagged with `wedding' and so on). To
+facilitate this, a significant amount of knowledge will need to be
+represented and organised, for instance in specific knowledge
+modelling or bespoke parsers and lexicons.
 
-There is no doubt that profiling is very difficult, and in relation to
+There is no doubt that profiling is difficult, and in relation to
 detecting (Five Factors) personality,
 \citeauthor{mairesse:2013}~\shortcite{mairesse:2013} recommends
 learning to map user inputs to elements that can improve its
@@ -279,30 +275,31 @@ on. Of course, there are simpler methods to detect bad behaviour
 related to fake accounts, for instance we might be interested in
 screening for non-UK cities, or the age of social networking
 accounts. While it is easy to automatically generate social networking
-profiles with followers and so on, and a range of links can be
-developed, certain features like the age of posts and photo uploads
-cannot be backdated to appear more established and credible.
+profiles with followers and activity for a few dollars, and a range of
+links can be developed, certain features like the age of posts and
+photo uploads cannot be backdated to appear more established and
+credible.
 
 
-\section{Rude Words: A Study of Pornography}
+\section{The Language of Pornography}
 
 Colleagues carried out a research project investigating opinions on a
 range of topics related to pornography usage; a web-based
 questionnaire received over five thousand respondents
-({\emph{n}}=5490). Several of the questions were open-ended, for instance how
-the person became involved with the subject of pornography, their
-particular interests and so on, eliciting on occasion very long
-answers (c.2000 words). From the initial
-findings~\cite{smith-et-al:2013}, the data is ill-structured, with
-frequent usage of bad grammar and contains a large number of jargon
-(swear) words relating to pornography and sexuality.
+({\emph{n}}=5490). Several of the questions were open-ended, for
+instance how the person became involved with the subject of
+pornography, their particular interests and so on, eliciting on
+occasion a number of detailed responses (c.2000 words). From the
+initial findings~\cite{smith-et-al:2013}, the data is ill-structured,
+with frequent usage of bad grammar and contains a large number of
+jargon (swear) words relating to pornography and sexuality.
 
 An aim of the original study was the investigation of the usage of
 fantasy. This resonated with our general interest in determining
-behaviour from data, and so we decided to explore the language
-characteristics of the answers related specifically with fantasy. We
-analysed the respondents text using the psycholinguistic databases
-LIWC and MRC. The Dictionary of Affect in Language
+behaviour from data, and so explored the language characteristics of
+the answers related specifically to fantasy. We analysed the
+respondents text using the psycholinguistic databases LIWC and
+MRC. The Dictionary of Affect in Language
 (DAL)~\cite{sweeney+whissell:1984} was also planned to be used, due to
 its specific uses for imagery-based language. We also used methods
 derived from LIWC and MRC to determine personality traits and measures
@@ -350,14 +347,14 @@ things I shouldn't do}}'')}
 \end{table}
 
 Analysis is ongoing, with the results to be published in the near
-future; however there does appear to be a strong negative correlation
+future; however there appears to be a strong negative correlation
 between participants who chose ``{\emph{A. To see things I might
 do}}'' versus ``{\emph{B. To see things I can't do}}'', as originally
 hypothesised. What was less convincing was our analysis of the Five
 Factors, and we put this down to the measures we used
-from~\cite{mairesse-et-al:2007} being derived from a very different
-corpus. We are currently concentrating on the lower level features
-from LIWC, MRC and DAL.
+from~\citeauthor{mairesse-et-al:2007}~\shortcite{mairesse-et-al:2007}
+being derived from a somewhat different corpus. We are currently
+concentrating on the lower level features from LIWC, MRC and DAL.
 
 \begin{figure}[!hp]
 \centering
@@ -391,7 +388,7 @@ Among the categories of pornography for ``{\emph{What kinds of
 sexually explicit materials do you access}}'' were the options
 {\emph{Fiction Sites}}, {\emph{Sex Blogs}} and
 {\emph{Stories}}. Table~\ref{tbl:textrel} shows the correlation
-between these categories. All of these pornography sites are fiction
+between these categories. All of these pornographic sites are fiction
 or story-based, and we examined the literary features of the
 respondents' replies to see if this group of respondents write in a
 more sophisticated way.
@@ -463,7 +460,7 @@ Stories & 0.192054 & 0.041866 & 1\\
 \end{figure}
 
 In all cases (see Figures~\ref{fig:flesch}--\ref{fig:wordcount}), it
-seems that the users favouring the text/story-based pornography have
+appears that the users favouring the text/story-based pornography have
 higher values than their non-text contemporaries.
 
 
@@ -478,7 +475,7 @@ close proximity to one another in the network are semantically
 disambiguated. WordNet
 Affect\footnote{\url{http://wndomains.fbk.eu/wnaffect.html}}, a
 hierarchical set of emotional categories, and
-SentiWordNet\footnote{\url{http://sentiwordnet.isti.cnr.it/}}, synets
+SentiWordNet\footnote{\url{http://sentiwordnet.isti.cnr.it/}}, synsets
 are assigned sentiment scores (positivity, negativity, objectivity),
 are built on top of WordNet.
 
@@ -486,14 +483,14 @@ are built on top of WordNet.
 study for Ofcom (formerly, the Broadcasting Standards Commission), the
 UK's regulatory and competition authority for the broadcasting,
 telecommunications and postal industries, was designed to test
-people’s attitudes to swearing and offensive language, and to examine
+people's attitudes to swearing and offensive language, and to examine
 the degree to which context played a role in their reactions. Included
 in the report was attitudes towards swearing and offensive language
 `in life', including a range of swear words and terms of
-abuse. Appendix 2’s `list of words' contained positions of the top
-swear words (saying ``{\emph{very severe}}'', ``{\emph{fairly
-severe}}'', ``{\emph{quite mild}}'' and ``{\emph{not swearing}}'') and
-their ranking from 1998 to 2000.
+abuse. Appendix 2's `list of words' contained positions of the top
+swear words (categorised as ``{\emph{very severe}}'', ``{\emph{fairly
+severe}}'', ``{\emph{quite mild}}'' and ``{\emph{not swearing}}'')
+along with their ranking from 1998 to 2000.
 
 The study of swear words has a longstanding position in linguistics,
 with the academic journal {\emph{Maledicta: The International Journal of
@@ -503,7 +500,7 @@ influence of vulgar, obscene, aggressive, abusive and blasphemous
 language. Unfortunately we do not have resources such as databases in
 the literature; furthermore, WordNet does not contain the range of
 swear words we encountered in our data and is no use for disambiguating
-our text. Wikipedia, however, fared much better. But even better than
+our text. Wikipedia, however, fared much better; but even better than
 these were Roger's Profanisaurus and Urban Dictionary.
 
 Roger's
@@ -522,10 +519,10 @@ peer-reviewed dictionary of slang or cultural words or phrases not
 typically found in standard dictionaries, with words or phrases on
 Urban Dictionary having multiple definitions, usage examples and tags.
 
-We created different gazetteers related to rude words (available upon
-request); one list was based on Wikipedia entries, and another on
-lists from Urban Dictionary. The Wikipedia list was created from link
-text on the Wikipedia porn sub-genre
+We created different gazetteers related to rude words; one list was
+based on Wikipedia entries, and another on lists from Urban
+Dictionary. The Wikipedia list was created from link text on the
+Wikipedia porn sub-genre
 page\footnote{\url{http://en.wikipedia.org/wiki/List_of_pornographic_sub-genres}}
 (link ``anchor text'' is a typical approach in semantic relatedness
 studies). This was comprised of 250 words. The Urban Dictionary list
@@ -552,7 +549,7 @@ life-history value of a token.\\
 
 \end{verbatim}
 
-We could say that this represents the relative position in terms of rude word occurrence, and therefore we can call this a normalized rude word index.\newline
+We could say that this represents the relative position in terms of rude word occurrence, and therefore we can call this a normalised rude word index.\newline
 
 \item {\textbf{Sentence Index:}} For each sentence in a block of text, the index of
 the sentence is used.\\
@@ -569,10 +566,10 @@ the sentence is used.\\
 \end{verbatim}
 \end{enumerate}
 
-For (1) and (2) we can compute an average metric for each rude word
+For (1) and (2) we computed an average metric for each rude word
 over all sentences, additionally with the possibility of excluding
 those below some frequency (per word) and/or excluding responses where
-the number of rude words was very low. Another alternative would be
+the number of rude words was very low. An alternative would be
 representing as a fractional token index.
 
 
@@ -586,25 +583,24 @@ tweets}}''~\cite{ritter-et-al:2011} and ``{\emph{showed that
 Twitter}}''~\cite{brody+diakopoulos:2011}, presenting a problem for
 lexicon-based approaches. These investigations both employed some form
 of inexact word matching to overcome the difficulties of unnatural
-language. We have made no attempt to use inexact string matching or to
-make use of a leetspeak parser. This will form part of future work.
+language. We have not yet used inexact string matching or made use of
+a leetspeak parser; this will form part of future work.
 
 To assist with the ongoing knowledge modelling problem in this domain
 we recognise the need to utilise specific lexicons that keep pace with
 the language used, for instance the use of Urban Dictionary to resolve
-swear words. We need to study how in what precise manner this resource
-keeps pace with popular culture.
+swear words. We need to study precisely how in what manner this
+resource keeps pace with popular culture.
 
 There are numerous other lists of pornographic words, which we
 compiled from miscellaneous sources; however, we are mainly interested
 in sources such as Wikipedia and Urban Dictionary as these are
-maintained by a similar community that uses the words in social
-networking. In this way we do not have to concern ourselves about this
-knowledge engineering process, merely concern ourselves about the
-representation and quality of meaning or definitions. We will in
-future work make use of the voting scores available on Urban
-Dictionary, and look to incorporate new resources such as Roger's
-Profanisaurus.
+maintained by a community that uses the words in social networking. In
+this way, we do not have to concern ourselves about this knowledge
+engineering process, merely concern ourselves about the representation
+and quality of meaning or definitions. We will in future work
+incorporate the voting scores available on Urban Dictionary, and look
+to fully integrate resources such as Roger's Profanisaurus.
 
 Future work will continue with the range of techniques to analyse
 content for words/phrases associated with certain key
