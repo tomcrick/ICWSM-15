@@ -1,0 +1,752 @@
+\def\year{2015}
+\documentclass[letterpaper]{article}
+\usepackage{aaai}
+\usepackage{times}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{amsmath}
+\usepackage[hyphens]{url}
+\usepackage{tabularx,ragged2e}
+\usepackage{multirow}
+\usepackage{graphicx}
+
+% fix table columns
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\frenchspacing
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+\pdfinfo{
+/Title (Profiling Complex Online Interactions: What Behaviour Can You Infer From a Digital Footprint?)
+/Keywords (Social Networks, Social Behaviour, Psycholinguistics, Social Computing, Data Mining)
+}
+\setcounter{secnumdepth}{0}  
+
+\begin{document}
+
+\title{Profiling Complex Online Interactions:\\What Behaviour Can You Infer From a Digital Footprint?}
+\author{ICWSM-15 Paper 8}
+
+\maketitle
+
+\begin{abstract}
+\begin{quote}
+This is an initial exploration of how people interact with complex
+online information systems, using a wide range of digital data and
+employing a number of personality and behavioural representation
+systems. The information system is an online application portal for an
+international academic mobility grant scheme, and we analyse document
+uploading behaviour, motivation letters and social media
+interactions.
+
+We apply psycholinguistic techniques to the motivation letters to
+determine the Five Factors personality scorings, and apply the same
+techniques to interactions with a dedicated Facebook page. The
+relative rankings are compared using the Kendall rank correlation
+statistic.
+
+Finally, we examine the upload footprint for the users and determine
+several classes of behaviour. These again are compared against the
+Five Factors, and in turn against the eventual grant status of the
+applicant.
+\end{quote}
+\end{abstract}
+
+
+\section{Introduction}
+
+Understanding how to develop software to facilitate its effective and
+efficient use is a core part of the broad field of human-computer
+interaction. Different users form different conceptual models about
+their interactions and have different ways of obtaining and developing
+knowledge and skills; cultural and national differences may also play
+a significant role. Another consideration in human-computer
+interaction is that technology -- and in particular, user interface
+technology -- changes rapidly, offering new interaction possibilities
+to which previous research findings may not necessarily
+apply. Alongside this, user preferences (and the way in which they
+interact with the software) change as they gradually master new
+interfaces and environments.
+
+Personality and behaviour can be determined from digital
+data~\cite{pennebaker-et-al:2001,vazire+gosling:2004,iacobelli-et-al:2011,oatley+crick:2014};
+while in the past this has mainly been the textual information
+contained in blogs, status posts and photo
+comments~\cite{blamey-et-al-2012,blamey-et-al-2013}, there is also a
+wealth of information in the other ways of interacting with digital
+artefacts. For instance, it is possible to observe the ordering (and
+frequency) of button clicks for a user.
+
+\citeauthor{mairesse-et-al:2007}~\shortcite{mairesse-et-al:2007}
+demonstrate the use of features from the psycholinguistic databases
+LIWC~\cite{pennebaker-et-al:2001} and MRC~\cite{wilson:1988} to create
+a range of statistical models for each of the Five Factors personality
+traits~\cite{norman:1963,peabody+goldberg:1989,goldberg:1990}. These
+five traits are: {\emph{Extraversion}}, {\emph{Emotional Stability}},
+{\emph{Agreeableness}}, {\emph{Conscientiousness}} and {\emph{Openness
+to Experience}}. Equation~\ref{eqn:extraversion} describes
+{\emph{Extraversion}}, where each feature is prefixed by the
+containing database.
+
+\begin{equation}\label{eqn:extraversion}
+\small
+\begin{aligned}
+\verb!Extraversion =!\\
+&\verb!-0.0379 * MRC.K_F_NSAMP +!\\
+&\verb!-0.0803 * LIWC.UNIQUE +!\\
+&\verb!-0.6074 * LIWC.ABBREVIATIONS +!\\
+&\verb! 0.1445 * LIWC.PRONOUN +!\\
+&\verb!-0.3941 * LIWC.HEARING +!\\  
+&\verb!17.1407;!
+\end{aligned}
+\end{equation}
+
+The test system analysed in this paper is the user interaction for a
+web-based educational application portal: ``{\emph{Online Portal for
+Scholarship Mobility}}''. We make use of textual data, analysing with
+these same psycholinguistic techniques, and employ standard
+statistical methods on non-textual data. The textual data also
+includes interaction with a dedicated Facebook page dedicated to
+resolving problems with the applications (of which there were many);
+and, the actual documents submitted, including a free-text application
+motivation letter. The non-textual data includes the final scoring of
+the individual for the grant they applied for (e.g. success, reserved,
+failure) and the individual's behaviour on the site (when they uploaded
+their documents, how close to the deadline and so on).
+
+
+\section{Domain Description and Available Data}
+
+Our data comes from an online portal for a European Union (EU)
+international scholarship mobility hosted at a UK university. The aim
+of the mobility programme is to enhance quality in higher education
+through scholarships and academic cooperation between Europe and the
+rest of the world. It provides mobility grants for students at
+different academic levels (Undergraduate, Masters, PhD, Post-Doctoral,
+Faculty) and has numerous courses available from a wide range of
+institutions across the EU.
+
+The details of the call were as follows: there were 2,706 applications
+submitted by 1,170 candidates, applying to 10 EU universities and 10
+non-EU universities. The system allows an applicant to apply to up to
+three courses from all courses offered by the 10 universities, and the
+applicant is required to assign a priority for each course. This
+priority field is used in the selection stage, for instance if the
+applicant assigned Course A as priority (1) and Course B as priority
+(2) and the applicant is accepted in both courses, then the first
+priority will be offered.
+
+Each mobility call has an opening date/time and closing date/time,
+with occasional extensions given for specific reasons (for instance
+due to administrative reasons or technical issues with the
+portal). Applicants are required to submit for their application
+certain mandatory files, such as motivation letter,
+passport/identification, curriculum vitae), as well as optional files
+(supporting documents). The primary modes of communication between
+candidates and the project team is via emails, telephone and the
+dedicated Facebook page. The selection process divided into three
+stages: Eligibility, Evaluation and Final Selection.
+
+\subsection{Eligibility}
+
+The project team scans each document to make sure all documents are
+uploaded correctly, for example users might upload an empty image in
+place of motivation letters and these need to be manually
+verified. There are mandatory documents to be uploaded to meet the
+minimum requirements of the call.
+
+\subsection{Evaluation}
+
+Eligible users are evaluated by a technical expert from the host
+university, based on the following: motivation letter; academic
+merit/performance (qualifications/grades); English language
+competencies e.g. International English Language Testing System
+(IELTS)\footnote{\url{http://www.ielts.org/}} score; and
+academic/research proposal.
+
+\subsection{Final Selection}
+
+Based on which rank the applicant assigned to the host university, the
+final selection is the top {\emph{n}} of applicants. {\emph{n}} is
+calculated based in the host capacity and budget of the project. This
+process results in the final classification of the applicant as
+either:
+
+\begin{itemize}
+\item {\emph{Accepted}} (ranked highest);
+\item {\emph{Reserved}} (passed but not selected);
+\item {\emph{Rejected}} (below passing grade); 
+\item {\emph{Ineligible}} (missing documents or out-dated documents).
+\end{itemize}
+
+
+\section{Experimental Design}
+
+Initially, we carried out three different types of experiments:
+Experiment 1 compared the motivation letters against the Facebook
+interactions; Experiment 2 compared the interaction footprint against
+the motivation letters; Experiment 3 checks the raw data using
+multiple regression.
+
+\subsection{Experiment 1}
+
+Applicants are required to upload a description of why they are
+applying for this particular mobility grant, the motivation
+letter. Applicants also communicated with the project team through the
+project Facebook page.
+
+We are interested in the similarity between language characteristics
+used in the much more formal documents (for instance the motivation
+letter) and that used in online social media (the Facebook page). The
+Facebook interaction consists of posts, comments and ``likes''. We
+extracted the text from all motivation letters and Facebook
+interactions and analysed both blocks of text according to the Five
+Factor personality traits as discussed previously.
+ 
+After extracting the Five Factors for each applicant we compared the
+relative positions of each of the Five Factors in both lists using the
+Kendall rank correlation statistic~\cite{kendall:1938}. We did
+this for: all applicants ({\emph{All}}); only the accepted applicants
+({\emph{Accepted}}); only the reserved applicants ({\emph{Reserved}});
+and only the rejected applicants ({\emph{Rejected}}).
+
+The average Kendall's tau coefficient value is reported for these
+groups, for each of the Five Factor features. By considering rank
+position and not absolute value, we mitigate against explaining values
+without baseline experimentation.
+
+\subsection{Experiment 2}
+
+We simplified an applicant's interaction, or timeline, with the portal
+to include the following milestones: {\emph{T0}} Registration Time;
+{\emph{T1}} First Action; {\emph{T2}} Last Action; and, {\emph{T3}}
+Submission. Additionally we represented an extension to the submission
+deadline as {\emph{T4}} Extension. In this way we can represent an
+applicant's interaction as shown in Figure~\ref{fig:timelines}, which
+shows seven example timelines.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{images/legend.jpg}
+\includegraphics[width=\columnwidth]{images/timelines.jpg}
+\caption{Seven user timelines. {\emph{T0}} (black bar) is when the applicant first
+registered with the call. {\emph{T1}} (red bar) represents when the applicant
+uploaded their first document, or First Action. {\emph{T2}} (green bar)
+represents an applicants' Last Action. {\emph{T3}} (blue bar) represents the
+applicants' Submission. {\emph{T4}} (aquamarine bar) represents the first
+deadline (certain calls had initial deadlines extended)}
+\label{fig:timelines}
+\end{figure}
+
+Using these milestones we are able to identify interesting behaviours
+that compare and contract with personality traits and other sources of
+information. Behaviours such as: how long it was before an applicant
+became aware of the call, and when they registered; how long after
+registration did the applicant carry out their first action with
+the system; how long did they take to complete their application; and,
+how close to the deadline did they submit their application.
+
+We divided the timeline of the call into five segments as presented in
+the following Table~\ref{tbl:tlperiods}. The complete timeline from
+opening to final close was 125 days. There was an extension from day
+112 until day 125. The segments or timeline periods are determined as
+percentage chunks of the total timeline, for instance segment
+{\emph{S0}} is the first 20\% of the timeline, and so ranges from day
+1 until day 25, segment {\emph{S1}} ranges from day 26 until day 50,
+and so on.
+
+\begin{table}[!ht]
+\centering
+\begin{tabularx}{\columnwidth}{Y Y Y}
+%\begin{tabular}{c c c} 
+\hline
+Segment & Start & Finish  \\ 
+\hline
+{\emph{S0}} & 0 & 20\\
+{\emph{S1}} & 20 & 40\\
+{\emph{S2}} & 40 & 60\\
+{\emph{S3}} & 60 & 90\\ 
+{\emph{S4}} & 90 & 100\\ 
+\hline
+%\end{tabular}
+\end{tabularx}
+\caption{Timeline periods as percentages of total timeline}
+\label{tbl:tlperiods}
+\end{table}
+
+Using these segments we were able to assign the various applicant
+actions ({\emph{T0}} Registration, {\emph{T1}} First Upload,
+{\emph{T2}} Last Upload, {\emph{T3}} Submission) to various time
+periods. This allowed us to assign applicants to statistically
+significant categories, and also to add in a few categories from
+observations. These are shown in Table~\ref{tbl:apptlseg}; as you can
+see, a small number of applicants ({\emph{n}}=4) registered within the
+segment S1 (20-40\% of timeline), and then uploaded all of their
+documents and submitted within the segment S3 (60-90\% of
+timeline). This is represented by Class A, the first row; successive
+rows can be interpreted in the same manner.
+
+\begin{table}[!ht]
+\centering
+\begin{tabularx}{\columnwidth}{Y Y Y Y Y Y}
+%\begin{tabular}{c c c} 
+\hline
+Class & {\emph{n}} & {\emph{T0}} & {\emph{T1}} & {\emph{T2}} & {\emph{T3}} \\ 
+\hline
+{\emph{A}} & 4 & S1 & S3 & S3 & S3\\
+{\emph{B}} & 14 & S2 & S2 & S2 & S2\\
+{\emph{C}} & 128 & S2 & S3 & S3 & S3\\
+{\emph{D}} & 29 & S2 & S3 & S4 & S4\\
+{\emph{E}} & 678 & S3 & S3 & S3 & S3\\
+{\emph{F}} & 202 & S3 & S3 & S4 & S4\\
+{\emph{G}} & 9 & S3 & S4 & S4 & S4\\
+{\emph{H}} & 54 & S4 & S4 & S4 & S4\\
+\hline
+%\end{tabular}
+\end{tabularx}
+\caption{Applicants' timeline actions assigned to segments}
+\label{tbl:apptlseg}
+\end{table}
+
+\begin{table*}[!ht]
+\centering
+\begin{tabularx}{\textwidth}{c X l}
+%\begin{tabular}{c c c} 
+\hline
+Class & Description & Potential Alias  \\ 
+\hline
+{\emph{A}} & Register early, and take some time to upload documents, but submit with plenty of time before deadline & EverythingEarly\\
+{\emph{B}} & Register reasonably early, but then upload documents and submit straight after with plenty of time before deadline, making no amendments & QuiteEarlyAndQuick\\
+{\emph{C}} & Similar to Class B, but submitting more slowly & Cautious\\
+{\emph{D}} & Registers reasonably early, and then takes time to upload, and only submits at the last days & VeryCautious\\
+{\emph{E}} & Latecomer to registration, but then uploads and submits
+quickly thereafter & Cautious\\
+{\emph{F}} & Latecomer to registration, but then uploads and submits
+slowly & Cautious\\
+{\emph{G}} & Latecomer to registration, but delays uploading and
+submission to last days & Cautious\\
+{\emph{H}} & Does everything at the last days, from registration to submission & EverythingLastMinute\\
+\hline
+%\end{tabular}
+\end{tabularx}
+\caption{Description of each class}
+\label{tbl:classdesc}
+\end{table*}
+
+We do not want to be too quick to ascribe an alias to the behaviours,
+as we recognise that there are several possible interpretations;
+nevertheless, we have used the `Potential Alias' column in
+Table~\ref{tbl:classdesc} to indicate some initial thoughts.
+
+
+\subsection{Experiment 3}
+
+While the compound features of the Five Factors are an interesting
+perspective, we also needed to check the raw data underneath this, in
+the form of the psycholinguistic features LIWC and MRC. For this
+investigation we chose multiple regression.
+
+We extracted the LIWC row data features (87 features) from the
+motivation letters and analysed the input data set against the
+`status' of the application. The method used was multiple regression,
+the dependent variable being `status' and the independent variables
+are the LIWC features. We proceeded as follows:
+
+\begin{itemize}
+\item Our first assumption is multicollinearity, which refers to the
+  relationship when two independents variables are highly correlated;
+\item Removing the above features, carry out regression;
+\item Detecting outliners using Mahalanobis distance, and since we
+  have 60 features remaining after the multicollinearity elimination,
+  our critical value is: {\textbf{99.607}} (see Table~\ref{tbl:sampledata});
+\item Screening for outliners, since multiple regression is very
+  sensitive regarding outliners;
+\item Making sure that we have linear relationship between the
+  independent variables and the outcome.
+\end{itemize}
+
+
+\section{Results}
+
+The result presented in this section are an initial indication of our
+research with this system; we are currently developing more detailed
+experiments and research with this rich dataset.
+
+\subsection{Experiment 1}
+
+Table~\ref{tbl:avrankcorr} shows the results of the Kendall's tau
+coefficient, specifically the variant that makes adjustments for ties
+({\emph{Tau-b}}). Values of {\emph{Tau-b}} range from -1 (100\%
+negative association, or perfect inversion) to +1 (100\% positive
+association, or perfect agreement). A value of zero indicates the
+absence of association.
+
+\begin{table}[!ht]
+\centering
+\begin{tabularx}{\columnwidth}{l Y Y Y Y Y}
+%\begin{tabular}{c c c} 
+\hline
+Group & E & ES & A & C & O \\ 
+\hline
+{\emph{All}} & $-0.094$ & 0.099 & 0.145 & 0.025 & {\textbf{$-0.379$}}\\
+{\emph{Accepted}} & 0.000 & 0.000 & 0.000 & 0.000 & {\textbf{0.800}}\\
+{\emph{Rejected}} & $-0.244$ & {\textbf{0.333}} & $-0.067$ & 0.022 & $-0.244$\\
+{\emph{Reserved}} & 0.010 & 0.010 & 0.162 & 0.153 & {\textbf{$-0.6$}}\\
+\hline
+%\end{tabular}
+\end{tabularx}
+\caption{Average rank correlation for applicant group versus personality
+trait (E: {\emph{Extraversion}}; ES: {\emph{Emotional Stability}}; A: {\emph{Agreeableness}}; C:
+{\emph{Conscientiousness}}; O: {\emph{Openness to Experience}})}
+\label{tbl:avrankcorr}
+\end{table}
+
+
+The most significant positive relationship is between those applicants
+{\emph{Accepted}} and the feature {\emph{Openness to Experience}}
+({\emph{Tau-b}} = 0.8). A strong negative relationship exists between
+those applicants {\emph{Reserved}} and the feature {\emph{Openness to
+Experience}} ({\emph{Tau-b}} = -0.6).
+
+\subsection{Experiment 2}
+
+The following Figures~\ref{fig:extraversion}--\ref{fig:openexp} show
+box and whisper plots for each of the Five Factors, with the y-axis of
+each figure displaying the range for that particular feature. For
+example, Figure~\ref{fig:extraversion} displays the Extraversion
+feature, and the y-axis displays these values accordingly. The x-axis
+is comprised of the various classes from
+Figure~\ref{fig:extraversion}, combined with the status of the
+application (1. {\emph{Accepted}}, 2. {\emph{Rejected}},
+3. {\emph{Reserved}}, 4. {\emph{Ineligible}}). Therefore, A1 are the
+Class A applicants who were {\emph{Accepted}}, distinguished from A2,
+who were the same class (i.e. same activity based on
+timeline/milestones), but who were {\emph{Rejected}}.
+
+\begin{figure*}[!hp]
+\centering
+\includegraphics[width=0.8\textwidth]{images/Extraversion_ver1.jpg}
+\caption{{\emph{Extraversion}}. All features are hard to distinguish between, excepting that B2 is
+significantly smaller than B3 and B4}
+\label{fig:extraversion}
+\end{figure*}
+
+\begin{figure*}[!hp]
+\centering
+\includegraphics[width=0.8\textwidth]{images/EmotionalStability_ver1.jpg}
+\caption{{\emph{Emotional Stability}}. No real features larger or smaller, although the range on all of the E
+features seems much greater than the other features}
+\label{fig:emotstab}
+\end{figure*}
+
+\begin{figure*}[!hp]
+\centering
+\includegraphics[width=0.8\textwidth]{images/Agreeableness_ver1.jpg}
+\caption{{\emph{Agreeableness}}. D4 is significantly smaller than D1, D2, and D3. G2 appears
+significantly less conscientious than G3}
+\label{fig:agreeableness}
+\end{figure*}
+
+\begin{figure*}[!hp]
+\centering
+\includegraphics[width=0.8\textwidth]{images/Conscientiousness_ver1.jpg}
+\caption{{\emph{Conscientiousness}}. G2 appears significantly less conscientious than G3. To a lesser
+degree D4 is smaller than D1, D2, and D3}
+\label{fig:conscientiousness}
+\end{figure*}
+
+\begin{figure*}[!hp]
+\centering
+\includegraphics[width=0.8\textwidth]{images/OpennessToExperience_ver1.jpg}
+\caption{{\emph{Openness to Experience}}. As with Emotional Stability, there are no exceptional features,
+although the range on all of the E features seems much greater than
+the other features. The Class E were the applicants that were relative
+late comers to registration, but who then uploaded and submitted
+quickly thereafter. Openness to Experience would seem to have very
+little relationship with this class of applicant}
+\label{fig:openexp}
+\end{figure*}
+
+\subsection{Experiment 3}
+
+We extracted the LIWC row data features (87 features) from the
+motivation letters and analysed the input data set against the
+`status' of the application. The method used was multiple regression,
+the dependent variable being `status' and the independent variables
+are the LIWC features (see Table~\ref{tbl:sampledata}).
+
+\begin{table}[!ht]
+\centering
+\begin{tabularx}{\columnwidth}{l Y Y Y Y Y}
+%\begin{tabular}{c c c} 
+\hline
+UID & WC & WPS & UNIQUE & SIXLTR\\ 
+\hline
+1003 & 364 & 24.2667 & 41.4835 & 37.9121\\
+1008 & 275 & 22.9167 & 61.4545 & 22.5455\\
+1010 & 197 & 8.20833 & 68.0203 & 37.0558\\
+1014 & 577 & 19.2333 & 53.7262 & 28.9428\\
+1016 & 348 & 19.3333 & 55.4598 & 29.5977\\
+1023 & 538 & 16.8125 & 53.9033 & 26.9517\\
+1033 & 517 & 23.5 & 54.352 & 35.9768\\
+1035 & 165 & 23.5714 & 62.4242 & 27.8788\\
+1039 & 388 & 16.1667 & 56.1856 & 31.701\\
+1040 & 491 & 14.8788 & 58.2485 & 33.4012\\
+1049 & 462 & 25.6667 & 55.8442 & 33.1169\\
+1058 & 293 & 32.5556 & 55.2901 & 26.9625\\
+1069 & 436 & 29.0667 & 52.5229 & 26.1468\\
+1073 & 162 & 27 & 61.1111 & 25.9259\\
+1078 & 334 & 17.5789 & 55.988 & 34.4311\\
+\hline
+%\end{tabular}
+\end{tabularx}
+\caption{Sample of the data set: we have 87 LIWC features and more than
+  1000 candidates. UID represent the user and rest of the columns represent
+  the LIWC features}
+\label{tbl:sampledata}
+\end{table}
+
+\subsection{Result Set}
+
+The first result set shows the correlation between dependent variable
+(status) and independents variables (LIWC features). In our first
+assumption multicollinearity we use an R value of 0.7 or higher to say
+two predictable values have multicollinearity. Based on
+Table~\ref{tbl:sampledata}, if the tolerance is smaller than 0.1 then
+we have probability of multicollinearity, while VIF is the inverse of
+the tolerance, and so in the case of VIF greater than 10 then we have
+a case of multicollinearity. In this way, we found that the below LIWC
+features are related through multicollinearity:
+
+\begin{verbatim}
+    REFERENCE_PEOPLE      SEEING
+    LEISURE_ACTIVITY      SELF
+    AFFECTIVE_PROCESS     WE
+    PHYSICAL_STATES       MUSIC
+    POSITIVE_EMOTION      TV_OR_MOVIE
+    SPORTS                FEELING
+    OTHER                 SLEEPING
+    BODY_STATES           HEARING
+    YOU                   SEXUALITY
+    SENSORY_PROCESS       OCCUPATION
+    HOME                  SOCIAL_PROCESS
+    PRONOUN               COGNITIVE_PROCESS
+    DIC                   NEGATIVE_EMOTION
+\end{verbatim}
+
+\begin{table}[!h]
+\begin{tabularx}{\columnwidth}{l l Y Y}
+%\multicolumn{2}{l}{Coefficients}            &                       &\\
+\hline
+\multicolumn{2}{l}{\multirow{2}{*}{Model}} &
+\multicolumn{2}{c}{{\emph{Collinearity Statistics}}} \\
+\multicolumn{2}{c}{}                        & Tolerance             & VIF                \\
+\hline
+1   & (Constant)           & -                     & -                  \\
+& REFERENCE\_PEOPLE    & 0.003                 & 290.011            \\
+& LEISURE\_ACTIVITY    & 0.004                 & 266.927            \\
+& AFFECTIVE\_PROCESS   & 0.006                 & 181.557      \\
+& PHYSICAL\_STATES	& 0.006	& 181.512 \\
+& POSITIVE\_EMOTION	& 0.006	& 176.569  \\
+& SPORTS	& 0.007	& 139.147 \\
+& OTHER	& 0.007	& 138.914 \\
+& BODY\_STATES	& 0.008	& 122.386 \\
+& YOU	& 0.009	& 108.779 \\
+& SENSORY\_PROCESS	& 0.011	& 89.824 \\
+& HOME	& 0.015	& 67.555 \\
+& PRONOUN	& 0.022	& 46.061 \\
+& DIC	& 0.023	& 43.246 \\
+& SEEING	& 0.025	& 39.690 \\
+& SELF	& 0.029	& 34.103 \\
+& WE	& 0.033	& 30.494 \\
+& MUSIC	& 0.037	& 27.254 \\
+& TV\_OR\_MOVIE	& 0.041	& 24.260 \\
+& FEELING	& 0.043	& 23.210 \\
+& SLEEPING	& 0.044	& 22.841 \\
+& HEARING	& 0.047	& 21.488 \\
+& SEXUALITY	& 0.049	& 20.536 \\
+& OCCUPATION	& 0.050	& 19.857 \\
+& SOCIAL\_PROCESS	& 0.070	& 14.252 \\
+& COGNITIVE\_PROCESS	& 0.075	& 13.407 \\
+& NEGATIVE\_EMOTION	& 0.089	& 11.213 \\
+\hline
+\end{tabularx}
+\caption{Coefficients of multicollinearity variance influence factor}
+\label{tbl:coefficmulti}
+\end{table}
+
+\subsection{Mahalanobis Distance}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\columnwidth]{images/fig-x-1.jpg}
+\caption{Normal P-P Plot}
+\label{fig:normalpp}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\columnwidth]{images/fig-x-2.jpg}
+\caption{Scatterplot}
+\label{fig:scatterplot}
+\end{figure}
+
+Checking Mahalanobis distance, we found that 102 records exceed the
+critical values, so we have removed these records since it is more
+than 2\% of the total number. 
+
+\begin{table}[!h]
+\begin{tabularx}{\columnwidth}{Y Y Y Y Y}
+%\multicolumn{5}{l}{Model Summary} \\
+\hline
+Model & R & R Sq. & Adj. R Sq. & Std. Err of Est.\\
+\hline
+1   & .262$^a$ & 0.069  & 0.010 & 0.796\\
+\hline
+\end{tabularx}
+\caption{Model summary after removing the multicollinearity features
+  and above critical value of Mahalanobis distance}
+\label{tbl:modelsum}
+\end{table}
+
+\begin{table}[!h]
+\begin{tabularx}{\columnwidth}{Y Y Y Y Y Y}
+\hline
+ & Sum of Sq. & df & Mean Sq. & F & Sig.\\
+\hline
+Regress. & 41.602 & 56 & 0.743 & 1.172 & 0.187$^b$\\
+Residual  & 563.465 & 889  & 0.634 & - & -\\
+Total & 605.067 & 945 & - & - & -\\
+\hline
+\end{tabularx}
+\caption{Evaluation of the model and ability to predicate the status values}
+\label{tbl:anova}
+\end{table}
+
+
+\begin{table}[!h]
+\begin{tabularx}{\columnwidth}{l l Y Y}
+\hline
+Model & & Stnd. Coeff. & Sig.\\
+\hline
+& & Beta & \\
+1 & (Constant) & & 0.000\\
+ & NEGATIONS & 0.109 & 0.004\\
+& QMARK	& 0.107	& 0.199 \\
+& SPACE	& 0.098	& 0.044 \\
+& ABBREVIATIONS	& 0.076	& 0.038 \\
+& CAUSATION	& 0.073	& 0.051 \\
+& DASH	& 0.068	& 0.093 \\
+& UNIQUE	& 0.068	& 0.247 \\
+& INHIBITION	& 0.062	& 0.072 \\
+& JOB\_OR\_WORK	& 0.051	& 0.188 \\
+& DISCREPANCY	& 0.045	& 0.289 \\
+& SCHOOL	& 0.044	& 0.279 \\
+\hline
+\end{tabularx}
+\caption{Top effective coefficient LIWC features over the model}
+\label{tbl:topliwc}
+\end{table}
+
+\subsection{Summary}
+
+Based on the result set we have, out initial data consisted of 1048
+candidates and 86 LIWC features, before we build the multiple
+regression model we have gone through different checks to eliminate
+the features that may affect our model.
+
+In the first assumption (Table~\ref{tbl:coefficmulti}), we removed 26
+features because we detected its multicollinearity which will affect
+the model, and also eliminated 102 candidates with critical values in
+Mahalanobis distance check to reach the best model. On the model
+summary (Table~\ref{tbl:modelsum}), R Square shows that 6.9\% accuracy
+to predicate the output of the ``status'' with these
+features. Signification (Table~\ref{tbl:anova}) of the model in ANOVA
+should be under 0.05 but the value is 0.187 which means that the
+current model cannot produce accurate prediction for the output. The
+most effective feature in the model in Table~\ref{tbl:topliwc} are
+NEGATIONS.
+
+
+\section{Conclusions and Future Work}
+
+We have started the analysis of interactions with our chosen
+information system utilising a small set of features; there are many
+more that we are planning to investigate. We list below the features
+we have used in these experiments, and the remaining features that can
+be used in future experiments:
+
+\begin{itemize}
+\item {\textbf{Data used in these experiments:}} Five Factors on text
+  from Facebook Interaction; Five Factors on text from motivation
+  letters; Status (e.g. Eligibility, Final Selections); Timeline/Footprint.
+\item {\textbf{Data available but not used:}} Complete/detailed
+  Timeline/Footprint; Complete/detailed Facebook profile which
+  includes interactions between applicants; Demographic Information
+  (e.g. gender, age); Appeals after receiving application decision
+  (e.g. email or webpage help text); Five Factors Questionnaire (for
+  current calls); Course Details; Course Favourites; Email
+  interactions during application; Evaluation Grades (actual scores,
+  broken down into categories); Additional forms (qualifications, CV,
+  research proposal); Reasons for ineligibility (e.g. documents
+  missing, already received scholarship within 12 months); Mobility
+  Levels (e.g. undergraduate, postgraduate); Mobility Type
+  (e.g. exchange, degree seeking); Host Institutions (where they applied).
+\end{itemize}
+
+The results from our two streams of experiments or explorations
+provide a valuable initial indication about the data and an
+appropriate way to represent and explore it. From Experiment 1, there
+seems to be a strong relationship between the Five Factor feature
+{\emph{Openness to Experience}} with a strong correlation with the
+{\emph{Accepted}} group. The exploration of timeline behaviour is
+dependent on our representation used for interactions, and the classes
+derived. This is a first attempt at tackling this representation
+problem. The same feature {\emph{Openness to Experience}} has no
+group/class combinations that are significantly different than others.
+
+The investigation using the Five Factors is very much in its initial
+stages, and we wish to develop further to deliver an appropriate
+instrument to the applicants to determine precisely their trait
+values, and then we can explore how different personality types
+interact. For this initial study we have utilised the only method
+available to us, which is that determined by
+\citeauthor{mairesse-et-al:2007}~\shortcite{mairesse-et-al:2007}. Our
+future work will continue to focus in developing the multiple
+regression model based upon more accurate data by including more
+details about the user instead of only the motivation letter.
+
+We are continuing with our dictionary-based approach to examine
+content differences (LIWC), psycholinguistic differences (MRC), and
+will also include affect differences using the Dictionary of Affect in
+Language (DAL)~\cite{whissell:2008,whissell:2009}. The DAL is designed
+to measure the emotional meaning of words and texts, comparing against
+a word list rated by people for their activation, evaluation, and
+imagery. Additionally we are using the
+SentiWordNet~\cite{esuli+sebastiani:2006} and
+WordNet-Affect~\cite{strapparava+valitutti:2004} extensions to
+WordNet~\cite{miller:1995}. WordNet is a large lexical database of
+English. Nouns, verbs, adjectives and adverbs are grouped into sets of
+cognitive synonyms (synsets), each expressing a distinct
+concept. Synsets are interlinked by means of conceptual-semantic and
+lexical relations. SentiWordNet is a lexical resource for opinion
+mining. WordNet-Affect labels synsets with a hierarchical set of
+emotional categories.
+
+We will correlate these with the Five Factors and trait emotional
+intelligence~\cite{petrides+furnham:2001} through administration of
+the Big Five Inventory (BFI, 44-item)~\cite{john-et-al:1991} and Trait
+Emotional Intelligence Questionnaire--Short Form (TEIQue-SF, 30-item)
+questionnaires designed to measure global trait emotional
+intelligence~\cite{petrides+furnham:2006} respectively. In this way we
+determine our own domain specific formulae for traits and behaviours,
+instead of relying on the bias inherent in those from
+\citeauthor{mairesse-et-al:2007}~\shortcite{mairesse-et-al:2007}. In
+particular, we are especially interested in the temporal aspects of
+traits and affects, which we plan to explore using Allen's logic of
+time and action~\cite{allen:1983,allen:1984}.
+
+\bibliographystyle{aaai}
+\bibliography{icwsm15p1}
+
+\end{document}
